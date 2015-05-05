@@ -8,7 +8,6 @@
 #define EVENTOS_H
 
 #include "mapa.h"
-#include "barco.h"
 
 /**
   * Função inline. 

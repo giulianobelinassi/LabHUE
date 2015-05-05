@@ -36,11 +36,11 @@ void destroi_mapa(Mapa** mapa);
 
 /**
  * Abre o <b>mapa</b> especificado em <b>arquivo</b>
- * @param mapa		Mapa a ser aberto. Passagem por referência.
+ * @param mapa 		Mapa alocado dinamicamente.
  * @param arquivo	String com o caminho do arquivo.
  * @return		Sucesso?
  */
-int leia_mapa(Mapa** mapa, const char* arquivo);
+int leia_mapa(Mapa* mapa, const char* arquivo);
 
 /**
  * Escreve mapa na tela
