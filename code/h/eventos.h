@@ -60,5 +60,13 @@ int identifica_alvo_atingido(Mapa* mapa);
  */
 int afunda_embarcacao(Mapa* mapa);
 
+/**
+  * Verifica se o jogo foi ganho.
+  * @param mapa		Mapa alocado dinamicamente.
+  * @param barco	Barquinho do jogador.
+  * @return		Sucesso?
+  */
+int ganhou_jogo(const Mapa* mapa, const Barco* barco);
+
 #endif
 
