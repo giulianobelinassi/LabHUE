@@ -8,7 +8,6 @@
 #define EVENTOS_H
 
 #include "mapa.h"
-#include "barco.h"
 
 /**
   * Função inline. 
@@ -36,7 +35,7 @@ int dispara_tiros(Mapa* mapa);
   * @param j		Coluna sorteada passada por referência.
   * @return 		Sucesso?
   */
-int coordenadas_tiro(Mapa* mapa, int* i, int* j);
+int coordenadas_tiro(int* i, int* j);
 
 /**
  * Imprime as coordenadas de um tiro e a mensagem correspondente ao efeito desse tiro.
@@ -50,7 +49,7 @@ int coordenadas_tiro(Mapa* mapa, int* i, int* j);
  * @param mapa		Mapa alocado dinamicamente.
  * @return		A ser especificado.
  */
-int identifica_alvo_atingido(Mapa* mapa, int i, int j);
+int identifica_alvo_atingido(Mapa* mapa);
 
 /**
  * Afunda totalmente a embarcacao atingida por um tiro; ou seja, atribui '∗' a todas as posições
@@ -59,7 +58,7 @@ int identifica_alvo_atingido(Mapa* mapa, int i, int j);
  * @param mapa		Mapa alocado dinamicamente
  * @return		A ser especificado.
  */
-int afunda_embarcacao(Mapa* mapa, int i, int j);
+int afunda_embarcacao(Mapa* mapa);
 
 /**
   * Verifica se o jogo foi ganho.
