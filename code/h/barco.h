@@ -37,6 +37,6 @@ int rema_barco(Mapa* mapa, Barco* barco);
   * @param j		j-ésima coluna da matriz.
   * @return 		Sucesso?
   */
-int posiciona_barco(Mapa* mapa, Barco* barco);
+int posiciona_barco(pMapa mapa, pBarco barco);
 
 #endif
