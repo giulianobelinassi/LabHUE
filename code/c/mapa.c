@@ -224,12 +224,18 @@ void escreva_mapa_tela(const Mapa* mapa)
 	
 	for (i = 0; i < M; ++i)
 	{
-		int margemi = 10000-i; /*arrumar logica*/
+		int margemi = i;
+		int log10_i;
 		
 		fprintf(stdout, "%d", i);
 		
-		while ((margemi/=10) != 0) /**< Ajusta a saída para melhor se encaixar com o número*/
+		for (log10_i = 0; (margemi/=10) != 0; ++log10_i)
+			; /**<Ajusta a saída para melhor se encaixar com o número.*/
+		
+		log10_i = 4 - log10_i;
+		while (log10_i-- > 0)
 			putc(' ', stdout);
+		
 		
 		for (j = 0; j < N; ++j)
 		{
