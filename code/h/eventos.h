@@ -18,7 +18,7 @@
   * 1 + (rand()/RAND_MAX+1.0))*k
   *
   */
-#define sorteia(k) ((int)(1 + (rand()/RAND_MAX+1.0))*k)
+#define sorteia(k) ((int)(1 + (rand()/RAND_MAX+1.0))*(k))
 
 /**
   * Determina os três tiros a serem disparados pelo computador, a cada remada. Imprime as
@@ -32,11 +32,12 @@ int dispara_tiros(Mapa* mapa);
 /**
   * Determina as coordenadas de um tiro, utilizando a função sorteia.
   *
+  * @param mapa		Mapa alocado dinamicamente.
   * @param i		Linha sorteada passada por referência.
   * @param j		Coluna sorteada passada por referência.
   * @return 		Sucesso?
   */
-int coordenadas_tiro(Mapa* mapa, int* i, int* j);
+void coordenadas_tiro(const Mapa* mapa, int* i, int* j);
 
 /**
  * Imprime as coordenadas de um tiro e a mensagem correspondente ao efeito desse tiro.
@@ -48,18 +49,18 @@ int coordenadas_tiro(Mapa* mapa, int* i, int* j);
  * '+' se o tiro atingiu alguma posicão do caminho percorrido pelo barco, exceto a posisão atual.
  *
  * @param mapa		Mapa alocado dinamicamente.
- * @return		A ser especificado.
  */
-int identifica_alvo_atingido(Mapa* mapa, int i, int j);
+void identifica_alvo_atingido(Mapa* mapa, int i, int j);
 
 /**
  * Afunda totalmente a embarcacao atingida por um tiro; ou seja, atribui '∗' a todas as posições
  * da matriz ocupadas por essa embarcaçao.
  *
  * @param mapa		Mapa alocado dinamicamente
- * @return		A ser especificado.
+ * @param i		Linha
+ * @param j		Coluna
  */
-int afunda_embarcacao(Mapa* mapa, int i, int j);
+void afunda_embarcacao(Mapa* mapa, int i, int j);
 
 /**
   * Verifica se o jogo foi ganho.
