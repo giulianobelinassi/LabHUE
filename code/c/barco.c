@@ -33,9 +33,9 @@ int posiciona_barco(pMapa mapa, pBarco barco)
 	debug_message(funcname, mapa, barco);
 	#endif
 	
-	printf("Escolha uma coluna para posicionar o barco. ");
-	printf("Entre com uma coluna valida: entre 0 e %d\n", mapa -> largura);
-	scanf("%d", &pos);
+	fprintf(stdout, "Escolha uma coluna para posicionar o barco. ");
+	fprintf(stdout, "Entre com uma coluna valida: entre 0 e %d\n", mapa -> largura);
+	fscanf(stdin, "%d", &pos);
 	if(pos <= 0 && pos >= mapa -> largura)
 		valido = 0;
 	while(!valido && mapa -> matriz[0][pos] != '.')
