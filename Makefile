@@ -1,7 +1,9 @@
-#Flags do compilador e linkeditor
+#Flags do compilador, linkeditor, e utilitários
 CC=gcc
 CFLAGS=-Wall -O2 -pedantic -c -g -D DEBUG
 LDFLAGS=
+MKDIR=mkdir
+MKFLAGS=-p
 
 #Variáveis de controle de ambiente
 C_DIR=code/c/
@@ -22,7 +24,7 @@ EXECUTABLE=fuganaval
 DIROBJ=$(addprefix $(O_DIR), $(OBJECTS))
 
 #Cria tudo
-all: $(OBJECTS) maps bin
+all: $(OBJECTS) bin maps
 
 #Cria documentação. Note a dependência do Doxygen.
 documentation: Doxifile
@@ -32,14 +34,16 @@ documentation: Doxifile
 
 #Cria arquivo objeto.
 %o: $(C_DIR)%c
+	$(MKDIR) $(MKFLAGS) $(O_DIR)
 	$(CC) $(CFLAGS) $(INCLUDE) $< -o $(O_DIR)$@
 
 #Cria binário
 bin: $(OBJECTS)
+	$(MKDIR) $(MKFLAGS) $(BIN_DIR)
 	$(CC) $(LDFLAGS) $(DIROBJ) -o $(BIN_DIR)$(EXECUTABLE) 
 	
 maps:
-	mkdir $(DESTMAPS_DIR)
+	$(MKDIR) $(MKFLAGS) $(DESTMAPS_DIR)
 	cp $(MAPS_DIR)* $(DESTMAPS_DIR)
 
 #Limpa
