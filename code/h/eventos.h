@@ -55,12 +55,16 @@ void identifica_alvo_atingido(Mapa* mapa, int i, int j);
 /**
  * Afunda totalmente a embarcacao atingida por um tiro; ou seja, atribui '∗' a todas as posições
  * da matriz ocupadas por essa embarcaçao.
+ * funcao chamada por identifica_alvo_atingido()
+ * a funcao acima deve passar a posicao que o tiro atingiu e o tipo de embarcação atingida
+ * Afunda recursivamente: afunda posição atual e busca pelas partes adjacentes
  *
  * @param mapa		Mapa alocado dinamicamente
+ * @param tipo Tipo de embarcação atingida
  * @param i		Linha
  * @param j		Coluna
  */
-void afunda_embarcacao(Mapa* mapa, int i, int j);
+void afunda_embarcacao(Mapa* mapa, char tipo, int linha, int coluna)
 
 /**
   * Verifica se o jogo foi ganho.
