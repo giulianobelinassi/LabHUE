@@ -58,6 +58,7 @@ void identifica_alvo_atingido(Mapa* mapa, int i, int j);
  * funcao chamada por identifica_alvo_atingido()
  * a funcao acima deve passar a posicao que o tiro atingiu e o tipo de embarcação atingida
  * Afunda recursivamente: afunda posição atual e busca pelas partes adjacentes
+ * Obs: afunda todos os tipos de embarcação, exceto o submarino
  *
  * @param mapa		Mapa alocado dinamicamente
  * @param tipo Tipo de embarcação atingida
