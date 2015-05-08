@@ -53,6 +53,8 @@ int rema_barco(pMapa mapa, pBarco barco)
 	if(valido)
 		mapa->matriz[barco->linha][barco->coluna] = 'T';
 
+	/* finaliza o jogo se barco->coluna == mapa.altura - 1 */
+
 	#ifdef DEBUG
 	debug_message("Prestes a retornar 0\n");
 	#endif

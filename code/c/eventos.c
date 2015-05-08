@@ -76,6 +76,7 @@ void identifica_alvo_atingido(Mapa* mapa, int i, int j)
 	{
 		fprintf(stdout, "o barco\n");
 		mapa -> matriz[i][j] = '!';
+		/* finaliza o jogo */
 	}
 	else
 	{
