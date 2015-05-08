@@ -16,6 +16,22 @@
   * @param argv
   * @return 
   */
+
+
+/** Sugestão (o que acham?)
+  *
+  * posiciona_barco
+  * turno = 0
+  * emboscada = 0
+  * while(!fimDoJogo)
+  *   exibe mapa na tela completado por '-' da linha ocupada pelo barco até (linha mapa->altura - 1)
+  *   rema barco
+  *   dispara tiros
+  *	  se (posicao atual do barco == posicao anterior do barco) emboscada++
+  *   se (barco foi atingido || barco->linha == mapa.altura - 1 || emboscada == 3) fimDoJogo
+  *
+  */
+
 int main(int argc, char* argv[])
 {
 	Mapa* mapa;
