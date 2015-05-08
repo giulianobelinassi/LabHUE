@@ -123,6 +123,14 @@ int ganhou_jogo(const Mapa* mapa, const Barco* barco)
 	debug_message(funcname, mapa, barco);
 	#endif
 	
+	if (barco->linha >= mapa->altura-1)
+	{	
+		#ifdef DEBUG
+		debug_message("Prestes a retornar 1\n");
+		#endif
+		return 1;
+	}
+		
 	#ifdef DEBUG
 	debug_message("Prestes a retornar 0\n");
 	#endif

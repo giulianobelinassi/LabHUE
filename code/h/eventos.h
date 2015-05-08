@@ -71,7 +71,8 @@ void afunda_embarcacao(Mapa* mapa, char tipo, int linha, int coluna)
   * Verifica se o jogo foi ganho.
   * @param mapa		Mapa alocado dinamicamente.
   * @param barco	Barquinho do jogador.
-  * @return		Sucesso?
+  * @return		1, se o jogo foi ganho.<p>
+  *			0, caso contrário.
   */
 int ganhou_jogo(const Mapa* mapa, const Barco* barco);
 
