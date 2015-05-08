@@ -28,27 +28,31 @@ int rema_barco(pMapa mapa, pBarco barco)
 
 	switch(mov)
 	{
-		case 'b':	if(barco->linha + 1 < mapa->altura && mapa->matriz[barco->linha + 1][barco->coluna] == '.')
-					{
-						valido = 1;
-						mapa->matriz[barco->linha + 1][barco->coluna] = 'B';
-						barco->linha++;
-					}
-					break;
-		case 'e':	if(barco->coluna - 1 >= 0 && mapa->matriz[barco->linha][barco->coluna - 1] == '.')
-					{
-						valido = 1;
-						mapa->matriz[barco->linha][barco->coluna - 1] = 'B';
-						barco->coluna--;
-					}
-					break;
-		case 'd':	if(barco->coluna + 1 >= 0 && mapa->matriz[barco->linha][barco->coluna + 1] == '.')
-					{
-						valido = 1;
-						mapa->matriz[barco->linha][barco->coluna + 1] = 'B';
-						barco->coluna++;
-					}	
-					break;								
+		case 'b':	
+			if(barco->linha + 1 < mapa->altura && mapa->matriz[barco->linha + 1][barco->coluna] == '.')
+			{
+				valido = 1;
+				mapa->matriz[barco->linha + 1][barco->coluna] = 'B';
+				barco->linha++;
+			}
+		break;
+		
+		case 'e':
+			if(barco->coluna - 1 >= 0 && mapa->matriz[barco->linha][barco->coluna - 1] == '.')
+			{
+				valido = 1;
+				mapa->matriz[barco->linha][barco->coluna - 1] = 'B';
+				barco->coluna--;
+			}
+		break;
+		case 'd':
+			if(barco->coluna + 1 >= 0 && mapa->matriz[barco->linha][barco->coluna + 1] == '.')
+			{
+				valido = 1;
+				mapa->matriz[barco->linha][barco->coluna + 1] = 'B';
+				barco->coluna++;
+			}	
+		break;								
 	}
 	if(valido)
 		mapa->matriz[barco->linha][barco->coluna] = 'T';
