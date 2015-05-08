@@ -12,7 +12,6 @@
 
 int rema_barco(pMapa mapa, pBarco barco)
 {
-	int valido = 0;
 	char mov;
 
 	#ifdef DEBUG
@@ -22,40 +21,31 @@ int rema_barco(pMapa mapa, pBarco barco)
 	
 	printf("Mova o barco\n");
 	printf("(b)baixo  (e)esquerda  (d)direita\n");
-	fscanf(stdin, "%c", &mov);
-
-	printf("mov %c\n", mov);
-
+	fscanf(stdin, " %c", &mov);
 	switch(mov)
 	{
-		case 'b':	
-			if(barco->linha + 1 < mapa->altura && mapa->matriz[barco->linha + 1][barco->coluna] == '.')
-			{
-				valido = 1;
-				mapa->matriz[barco->linha + 1][barco->coluna] = 'B';
-				barco->linha++;
-			}
-		break;
-		
-		case 'e':
-			if(barco->coluna - 1 >= 0 && mapa->matriz[barco->linha][barco->coluna - 1] == '.')
-			{
-				valido = 1;
-				mapa->matriz[barco->linha][barco->coluna - 1] = 'B';
-				barco->coluna--;
-			}
-		break;
-		case 'd':
-			if(barco->coluna + 1 >= 0 && mapa->matriz[barco->linha][barco->coluna + 1] == '.')
-			{
-				valido = 1;
-				mapa->matriz[barco->linha][barco->coluna + 1] = 'B';
-				barco->coluna++;
-			}	
-		break;								
+		case 'b':	if(barco->linha + 1 < mapa->altura && mapa->matriz[barco->linha + 1][barco->coluna] == '.')
+					{
+						mapa->matriz[barco->linha][barco->coluna] = 'T';
+						mapa->matriz[barco->linha + 1][barco->coluna] = 'B';
+						barco->linha++;
+					}
+					break;
+		case 'e':	if(barco->coluna - 1 >= 0 && mapa->matriz[barco->linha][barco->coluna - 1] == '.')
+					{
+						mapa->matriz[barco->linha][barco->coluna] = 'T';
+						mapa->matriz[barco->linha][barco->coluna - 1] = 'B';
+						barco->coluna--;
+					}
+					break;
+		case 'd':	if(barco->coluna + 1 >= 0 && mapa->matriz[barco->linha][barco->coluna + 1] == '.')
+					{
+						mapa->matriz[barco->linha][barco->coluna] = 'T';
+						mapa->matriz[barco->linha][barco->coluna + 1] = 'B';
+						barco->coluna++;
+					}	
+					break;								
 	}
-	if(valido)
-		mapa->matriz[barco->linha][barco->coluna] = 'T';
 
 	#ifdef DEBUG
 	debug_message("Prestes a retornar 0\n");
@@ -76,14 +66,14 @@ int posiciona_barco(pMapa mapa, pBarco barco)
 	
 	printf("Escolha uma coluna para posicionar o barco. ");
 	printf("Entre com uma coluna valida: entre 0 e %d\n", (mapa -> largura - 1));
-	fscanf(stdin, "%d", &pos);
+	fscanf(stdin, " %d", &pos);
 	if(pos <= 0 && pos >= mapa -> largura)
 		valido = 0;
 	while(!valido && mapa -> matriz[0][pos] != '.')
 	{
 		printf("Posicao inválida! Tente novamente\n");
-		fscanf(stdin, "%d", &pos);
-		if(pos >= 0 && pos <= mapa -> largura) valido = 1;
+		fscanf(stdin, " %d", &pos);	
+		if(pos >= 0 && pos < mapa -> largura) valido = 1;
 	}
 	mapa -> matriz[0][pos] = 'B';
 	barco->linha = 0;
