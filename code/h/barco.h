@@ -21,12 +21,12 @@ typedef struct
   * Movimenta o barco horizontalmente ou verticalmente, dependendo
   * da entrada do teclado, tomando o cuidado de não colidir com outra
   * embarcação. As posições anteriormente ocupadas pelo barco são
-  * marcadas com 'T', e a posição atual com 'S'.
+  * marcadas com 'T', e a posição atual com 'B'.
   * @param mapa 	Mapa alocado dinamicamente.
   * @param barco	Referência ao barco.
   * @return		Sucesso?
   */
-int rema_barco(Mapa* mapa, Barco* barco);
+int rema_barco(pMapa mapa, pBarco barco)
 
 /**
   * Lê do teclado a posição inicial do barco e marca com 'B' esta posição
