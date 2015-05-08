@@ -85,7 +85,8 @@ void identifica_alvo_atingido(Mapa* mapa, int i, int j)
 		else if(c == 'C') fprintf(stdout, "Cruzador destruído!\n");
 		else if(c == 'P') fprintf(stdout, "Porta-Avião destruído!\n");
 		else if(c == 'H') fprintf(stdout, "Hidro-Avião destruído!\n");
-		afunda_embarcacao(mapa, mapa->matriz[i][j], i, j);
+		if(c != 'S')
+			afunda_embarcacao(mapa, mapa->matriz[i][j], i, j);
 	}
 	
 	#ifdef DEBUG
