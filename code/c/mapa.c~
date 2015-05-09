@@ -126,7 +126,7 @@ int leia_mapa(Mapa** mapa, const char* arquivo)
 		#ifdef DEBUG
 		debug_message("Erro: Arquivo não encontrado. Prestes a retornar NULL\n");
 		#endif
-		return 2; /** Erro: Mapa não encontrado.*/
+		return 2; /**< Erro: Mapa não encontrado.*/
 	}
 	
 	for (i = 0; (c = fgetc(file)) != EOF && c != ' '; ++i)

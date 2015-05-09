@@ -73,7 +73,7 @@ int identifica_alvo_atingido(Mapa* mapa, int i, int j)
 
 	c = mapa -> matriz[i][j];
 	fprintf(stdout, "(%d, %d): O tiro atingiu ", i, j);
-	if(c == '.' || c == '=')
+	if(c == '.')
 	{
 		fprintf(stdout, "a água\n");
 		mapa -> matriz[i][j] = '=';

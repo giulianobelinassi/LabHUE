@@ -56,9 +56,9 @@ int rema_barco(pMapa mapa, pBarco barco)
 	}
 
 	#ifdef DEBUG
-	debug_message("Prestes a retornar %d\n", naoRemou);
+	debug_message("Prestes a retornar %d\n", valido);
 	#endif
-	return naoRemou;
+	return 1;
 }
 
 void posiciona_barco(pMapa mapa, pBarco barco)
