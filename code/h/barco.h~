@@ -24,7 +24,7 @@ typedef struct
   * marcadas com 'T', e a posição atual com 'B'.
   * @param mapa 	Mapa alocado dinamicamente.
   * @param barco	Referência ao barco.
-  * @return		1, se o barco não se moveu. <p>
+  * @return		1, se o barco não se moveu;
   *			0, se o barco se moveu.
   */
 int rema_barco(pMapa mapa, pBarco barco);

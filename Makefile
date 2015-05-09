@@ -1,6 +1,6 @@
 #Flags do compilador, linkeditor, e utilitários
 CC=gcc
-CFLAGS=-Wall -O2 -pedantic -c -g -D DEBUG
+CFLAGS=-Wall -O3 -pedantic -c -g -D DEBUG
 LDFLAGS=
 MKDIR=mkdir
 MKFLAGS=-p
