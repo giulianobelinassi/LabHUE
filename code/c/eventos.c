@@ -16,19 +16,19 @@
 int dispara_tiros(Mapa* mapa)
 {
 	int i, j, k;
-	int resp = 1;
+	char resp;
 	#ifdef DEBUG
 	static char funcname[] = "Em: dispara_tiros(%p)\n";
 	debug_message(funcname, mapa);
 	#endif
 	
-	for (k = 0; k < NUMERO_DE_TIROS && resp != 0; ++k)
+	for (k = 0; k < NUMERO_DE_TIROS && resp != 'B'; ++k)
 	{
 		coordenadas_tiro(mapa, &i, &j);
 		resp = identifica_alvo_atingido(mapa, i, j);
 	}
 
-	if (resp == 0)
+	if (resp == 'B')
 	{	
 		#ifdef DEBUG
 		debug_message("Prestes a retornar 0\n");
@@ -62,10 +62,9 @@ void coordenadas_tiro(const Mapa* mapa, int* i, int* j)
 	#endif
 }
 
-int identifica_alvo_atingido(Mapa* mapa, int i, int j)
+char identifica_alvo_atingido(Mapa* mapa, int i, int j)
 {
 	char c = mapa -> matriz[i][j];
-	int resp = 1;
 	#ifdef DEBUG
 	static char funcname[] = "Em: identifica_alvo_atingido(%p)\n";
 	debug_message(funcname, mapa);
@@ -77,64 +76,53 @@ int identifica_alvo_atingido(Mapa* mapa, int i, int j)
 	{
 		fprintf(stdout, "a água\n");
 		mapa -> matriz[i][j] = '=';
-		resp = 1; /* Água*/
 	}
 	else if(c == '*')
 	{
 		fprintf(stdout, "uma embarcação destruída\n");
-		resp = 2; /* Já foi destruída*/
 	}
 	else if(c == '+' || c == 'T')
 	{
 		fprintf(stdout, "uma posição anterior do barco\n");
 		mapa -> matriz[i][j] = '+';
-		resp = 3; /* uma posição anterior do barco*/
 	}
 	else if(c == 'B')
 	{
 		fprintf(stdout, "o barco\n");
 		mapa -> matriz[i][j] = '!';
-		resp = 0; /* Acertou o barquinho :(*/
 	}
 	else
 	{
 		fprintf(stdout, "uma embarcação - ");
-		if     (c == 'S') 
-		{
+		if     (c == 'S')
 			fprintf(stdout, "Submarino destruído!\n");
-
-			resp = 4; /* Acertou um submarino*/
-		}
+		
 		else if(c == 'D')
 		{
 			fprintf(stdout, "Destroyer destruído!\n");
 			afunda_embarcacao(mapa, mapa->matriz[i][j], i, j);
-			resp = 5; /* Acertou um destroyer*/
 		}
 		else if(c == 'C')
 		{
 			fprintf(stdout, "Cruzador destruído!\n");
 			afunda_embarcacao(mapa, mapa->matriz[i][j], i, j);
-			resp = 6; /* Acertou um cruzador*/
 		}
 		else if(c == 'P')
 		{
 			fprintf(stdout, "Porta-Avião destruído!\n");
 			afunda_embarcacao(mapa, mapa->matriz[i][j], i, j);
-			resp = 7; /* Acertou um porta-avião*/
 		}
 		else if(c == 'H')
 		{
 			fprintf(stdout, "Hidro-Avião destruído!\n");
 			afunda_embarcacao(mapa, mapa->matriz[i][j], i, j);
-			resp = 8; /* Acertou um Hidro-Avião.*/
 		}
 	}
 	
 	#ifdef DEBUG
-	debug_message("Prestes a retornar %d\n", resp);
+	debug_message("Prestes a retornar '%c'\n", c);
 	#endif
-	return resp;
+	return c;
 }
 
 

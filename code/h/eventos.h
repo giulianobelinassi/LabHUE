@@ -51,18 +51,10 @@ void coordenadas_tiro(const Mapa* mapa, int* i, int* j);
  * @param mapa		Mapa alocado dinamicamente.
  * @param i		i-ésima linha.
  * @param j		j-ésima coluna.
-   @author		Rodrigo, Thais
- * @return		0, se acertou o barquinho. <p>
- 			1, se acertou a água. <p>
- 			2, se acertou algo afundado. <p>
- 			3, se acertou uma posicao anterior ao barco <p>
-			4, se acertou um Submarino <p>
-			5, se acertou um Destroyer <p>
-			6, se acertou um Cruzador <p>
-			7, se acertou um Porta-avião <p>
-			8, se acertou um Hidro-avião.
+ * @author		Rodrigo, Thais
+ * @return		Caractere correspondente ao alvo atingido.
  */
-int identifica_alvo_atingido(Mapa* mapa, int i, int j);
+char identifica_alvo_atingido(Mapa* mapa, int i, int j);
 
 /**
  * Afunda totalmente a embarcacao atingida por um tiro; ou seja, atribui '∗' a todas as posições
