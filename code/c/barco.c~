@@ -77,22 +77,24 @@ void posiciona_barco(pMapa mapa, pBarco barco)
 		#ifdef DEBUG
 		debug_message("Encontrado um barco pré-definido\n");
 		#endif
-		mapa->matriz[0][pos] = '.';
-	}	
-
-	printf("Escolha uma coluna para posicionar o barco. ");
-	printf("Entre com uma coluna válida: entre 0 e %d\n", (mapa -> largura - 1));
-	fscanf(stdin, " %d", &pos);
-	
-	while(pos < 0 && pos >= mapa->largura && mapa->matriz[0][pos] != '.')
-	{
-		printf("Posição inválida! Tente novamente\n");
-		fscanf(stdin, " %d", &pos);	
+		barco->linha = 0;
+		barco->coluna = pos;
 	}
-	mapa -> matriz[0][pos] = 'B';
-	barco->linha = 0;
-	barco->coluna = pos;
-
+	else
+	{	
+		printf("Escolha uma coluna para posicionar o barco. ");
+		printf("Entre com uma coluna válida: entre 0 e %d\n", (mapa -> largura - 1));
+		fscanf(stdin, " %d", &pos);
+		
+		while(pos < 0 && pos >= mapa->largura && mapa->matriz[0][pos] != '.')
+		{
+			printf("Posição inválida! Tente novamente\n");
+			fscanf(stdin, " %d", &pos);	
+		}
+		mapa -> matriz[0][pos] = 'B';
+		barco->linha = 0;
+		barco->coluna = pos;
+	}
 	#ifdef DEBUG
 	debug_message("Prestes a retornar\n");
 	#endif

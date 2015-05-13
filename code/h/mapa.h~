@@ -6,8 +6,6 @@
 #ifndef MAPA_H
 #define MAPA_H
 
-#include <stdio.h>
-
 /**
  * Abstração de mapa. Note que o mesmo deverá sempre ser
  * alocado dinamicamente.

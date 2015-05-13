@@ -27,7 +27,7 @@
   * @return 		0, se o barco não foi atingido. <p>
   *			1, caso contrário.
   */
-int dispara_tiros(Mapa* mapa, FILE* file);
+int dispara_tiros(Mapa* mapa);
 
 /**
   * Determina as coordenadas de um tiro, utilizando a função sorteia.

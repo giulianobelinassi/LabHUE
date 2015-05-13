@@ -13,7 +13,7 @@
 
 #define NUMERO_DE_TIROS 3
 
-int dispara_tiros(Mapa* mapa, FILE* file)
+int dispara_tiros(Mapa* mapa)
 {
 	int i, j, k;
 	char resp;
