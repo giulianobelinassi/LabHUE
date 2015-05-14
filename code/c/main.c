@@ -5,6 +5,8 @@
 #include "barco.h"
 #include "eventos.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define BECO_SEM_SAIDA 3 /**< Quantidade de jogadas sem o barco se mover até que o jogo pare.*/
 
@@ -30,7 +32,7 @@ int main(int argc, char* argv[])
 	FILE* file;
 	
 	int naoAtingido, naoRemou, travado = 0;
-	
+	srand(time(NULL));
 	
 	if (argc < 2)
 	{
