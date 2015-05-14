@@ -1,4 +1,4 @@
-/**
+/*
   * @file 
   * @brief Arquivo implementando funções que lidam com operações com mapas
   */
@@ -6,29 +6,14 @@
 #include <string.h>
 #include "mapa.h"
 
-#ifdef DEBUG
-#include "debug.h"
-#endif
-
-#define MAPDELIMITER '|'
-
 pMapa novo_mapa(int M, int N)
 {
 	int i;
-	Mapa* mapa;
-	#ifdef DEBUG
-	static char funcname[] = "Em: novo_mapa(%d, %d)\n";
-	debug_message(funcname, M, N);
-	#endif
+	Mapa_t* mapa;
 	
-	mapa = malloc(sizeof(Mapa));
+	mapa = malloc(sizeof(Mapa_t));
 	if (mapa == NULL)
-	{
-		#ifdef DEBUG
-		debug_message("Erro: Pouca memória. Prestes a retornar NULL");
-		#endif
 		return NULL; /*Não há memória suficiente no sistema.*/
-	}
 	
 	mapa->altura = M;
 	mapa->largura = N;
@@ -38,9 +23,6 @@ pMapa novo_mapa(int M, int N)
 	if(mapa->matriz == NULL) /* Falha na alocação.*/
 	{
 		free(mapa);
-		#ifdef DEBUG
-		debug_message("Erro: Pouca memória. Prestes a retornar NULL");
-		#endif
 		return NULL; /* Não há memória suficiente no sistema.*/
 	}
 		
@@ -55,30 +37,19 @@ pMapa novo_mapa(int M, int N)
 			
 			free(mapa->matriz);
 			free(mapa);
-			
-			#ifdef DEBUG
-			debug_message("Erro: Pouca memória. Prestes a retornar NULL");
-			#endif
-			
+						
 			return NULL;
 		}
 		memset(mapa->matriz[i], '.', N*sizeof(char)); /* Preenche a linha com '.'*/
 	}
 	
-	#ifdef DEBUG
-	debug_message("Prestes a retornar apontador para mapa (%p)\n", mapa);
-	#endif
 	return mapa;
 }
 
-void destroi_mapa(Mapa** mapa)
+void destroi_mapa(Mapa_t** mapa)
 {
 	int i;
 	int M;
-	#ifdef DEBUG
-	static char funcname[] = "Em: destroi_mapa(%p)\n";
-	debug_message(funcname, mapa);
-	#endif
 	
 	if (mapa == NULL || *mapa == NULL)
 		return; /* Não há nada para destruir*/
@@ -92,12 +63,9 @@ void destroi_mapa(Mapa** mapa)
 	
 	*mapa = NULL;
 	
-	#ifdef DEBUG
-	debug_message("Prestes a retornar\n");
-	#endif
 }
 
-int leia_mapa(Mapa** mapa, const char* arquivo)
+int leia_mapa(Mapa_t** mapa, const char* arquivo)
 {
 	FILE* file;
 	static char linhastr[20];
@@ -106,27 +74,12 @@ int leia_mapa(Mapa** mapa, const char* arquivo)
 	int i, j=0;
 	char c;
 	
-	#ifdef DEBUG
-	static const char funcname[] = "Em: leia_mapa(%p, %s)\n";
-	debug_message(funcname, mapa, arquivo);
-	#endif
-	
 	if (arquivo == NULL || mapa == NULL)
-	{	
-		#ifdef DEBUG
-		debug_message("Erro: Chamaram-me errado. Prestes a retornar 4\n");
-		#endif
 		return 4; /* Função chamada de forma incorreta*/
-	}
 	
 	file = fopen(arquivo, "r");
 	if (file == NULL)
-	{
-		#ifdef DEBUG
-		debug_message("Erro: Arquivo não encontrado. Prestes a retornar NULL\n");
-		#endif
 		return 2; /** Erro: Mapa não encontrado.*/
-	}
 	
 	for (i = 0; (c = fgetc(file)) != EOF && c != ' '; ++i)
 		linhastr[i] = c;
@@ -145,9 +98,6 @@ int leia_mapa(Mapa** mapa, const char* arquivo)
 	if (*mapa == NULL)
 	{
 		fclose(file);
-		#ifdef DEBUG
-		debug_message("Erro na alocação do mapa. Prestes a fechar o arquivo...\n");
-		#endif
 		return 3; /* Erro de alocação*/
 	}
 	
@@ -184,27 +134,15 @@ int leia_mapa(Mapa** mapa, const char* arquivo)
 	fclose(file);
 	
 	if (i != M || j != N)
-	{
-		#ifdef DEBUG
-		debug_message("WARNING: Mapa corrompido?\n");
-		#endif
 		return 1; /* Mapa corrompido?*/
-	}
 	
-	#ifdef DEBUG
-	debug_message("Prestes a retornar 0\n");
-	#endif
 	return 0;
 }
 
-void escreva_mapa_tela(const Mapa* mapa)
+void escreva_mapa_tela(const Mapa_t* mapa)
 {
 	int i, j;
 	int M, N;
-	#ifdef DEBUG
-	static char funcname[] = "Em: escreva_mapa_tela(%p)\n";
-	debug_message(funcname, mapa);
-	#endif	
 	
 	if (mapa == NULL)
 	{	
@@ -251,29 +189,16 @@ void escreva_mapa_tela(const Mapa* mapa)
 		}
 		putc('\n', stdout);
 	}
-	
-	#ifdef DEBUG
-	debug_message("Prestes a retornar\n");
-	#endif
 }
 
-int escreva_mapa_arquivo(const Mapa* mapa, FILE* file)
+int escreva_mapa_arquivo(const Mapa_t* mapa, FILE* arquivo)
 {	
 	int M, N;
 	int i, j;
-	/*FILE* file;*/
-	#ifdef DEBUG
-	static char funcname[] = "Em: escreva_mapa_arquvo(%p, %p)\n";
-	debug_message(funcname, mapa, file);
-	#endif
 
-	if (file == NULL)
-	{
-		#ifdef DEBUG
-		debug_message("Erro: Arquivo não encontrado. Prestes a retornar NULL\n");
-		#endif
-		return 2; /* Erro: Acesso negado.*/
-	}
+	if (arquivo == NULL)
+		return 2; /* Erro: Arquivo NULL.*/
+
 	
 	M = mapa->altura;
 	N = mapa->largura;
@@ -281,12 +206,9 @@ int escreva_mapa_arquivo(const Mapa* mapa, FILE* file)
 	for (i = 0; i < M; ++i)
 	{
 		for (j = 0; j < N; ++j)
-			putc(mapa->matriz[i][j], file);
-		putc('\n', file);
+			putc(mapa->matriz[i][j], arquivo);
+		putc('\n', arquivo);
 	}
 	
-	#ifdef DEBUG
-	debug_message("Prestes a retornar 0\n");
-	#endif
 	return 0;
 }

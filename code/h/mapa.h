@@ -11,15 +11,17 @@
 /**
  * Abstração de mapa. Note que o mesmo deverá sempre ser
  * alocado dinamicamente.
- *
  */
-typedef struct
+struct Mapa
 {
 	int largura;    /**< Largura do mapa iniciando de 1.*/
 	int altura;     /**< Altura do mapa iniciando de 1.*/
 	char** matriz;  /**< Matriz do mapa. denote MATRIZ[linha][coluna]*/
 	
-} Mapa, *pMapa;
+};
+
+/** Notações alternativas para evitar possíveis verborragias.*/
+typedef struct Mapa Mapa_t, *pMapa_t, *pMapa;
 
 /** 
   * Cria um mapa alocado dinamicamente.
@@ -28,14 +30,14 @@ typedef struct
   * @return		Apontador para o mapa.
   * @author		Giuliano
   */
-pMapa novo_mapa(int M, int N);
+struct Mapa* novo_mapa(int M, int N);
 
 /**
   * Destroi um mapa apontado por <b>mapa</b>
   * @param mapa		Referência ao mapa a ser destruido.
   * @author		Giuliano 
   */
-void destroi_mapa(Mapa** mapa);
+void destroi_mapa(struct Mapa** mapa);
 
 /**
  * Abre o <b>mapa</b> especificado em <b>arquivo</b>
@@ -48,24 +50,24 @@ void destroi_mapa(Mapa** mapa);
  *			4, se a função não foi chamada corretamente.
  * @author		Giuliano
  */
-int leia_mapa(Mapa** mapa, const char* arquivo);
+int leia_mapa(struct Mapa** mapa, const char* arquivo);
 
 /**
  * Escreve mapa na tela
  * @param mapa 		Mapa alocado dinamicamente.
  * @author		Giuliano
  */
-void escreva_mapa_tela(const Mapa* mapa);
+void escreva_mapa_tela(const struct Mapa* mapa);
 
 /**
  * Escreve um mapa especificado por <b>arquivo</b>
  * @param mapa 		Mapa alocado dinamicamente.
- * @param arquivo	String com o caminho do arquivo.
- * @return		0, se sucesso.
- *			2, se acesso negado.
+ * @param arquivo	Arquivo para escrever os logs.
+ * @return		0, se sucesso. <p>
+ *			2, se arquivo não aberto.
  * @author		Giuliano
  */
-int escreva_mapa_arquivo(const Mapa* mapa, FILE* file);
+int escreva_mapa_arquivo(const struct Mapa* mapa, FILE* arquivo);
 
 #endif
 

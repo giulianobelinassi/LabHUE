@@ -1,14 +1,10 @@
-/**
+/*
   *@file Lógica principal
   */
 #include "mapa.h"
 #include "barco.h"
 #include "eventos.h"
 #include <stdio.h>
-
-#ifdef DEBUG
-#include "debug.h"
-#endif
 
 #define BECO_SEM_SAIDA 3 /**< Quantidade de jogadas sem o barco se mover até que o jogo pare.*/
 
@@ -20,17 +16,21 @@
   */
 int main(int argc, char* argv[])
 {
-	Mapa* mapa;
-	static Barco lbarco;
-	Barco* barco = &lbarco;
-	int naoAtingido, naoRemou, travado = 0;
-	char* caminho_mapa;
-	char* caminho_saida = NULL;
+	const static char ARQ_SAIDA[] = "saida.txt";
+	const static char ATINGIDO[]  = "Seu barco foi atingido!\n";
+	const static char PRESO[]     = "Seu barco ficou preso!\n";
+	const static char GANHOU[]    = "Você Ganhou!";
+
+	Mapa_t* mapa;
+	Barco_t barco;
+	
+	const char* caminho_mapa;
+	const char* caminho_saida = ARQ_SAIDA;
+	
 	FILE* file;
-	#ifdef DEBUG
-	char funcname[] = "main(%d)\n";
-	debug_message(funcname, argc);
-	#endif
+	
+	int naoAtingido, naoRemou, travado = 0;
+	
 	
 	if (argc < 2)
 	{
@@ -38,46 +38,55 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 	
-	file = fopen("huehuehue.txt", "w");
+	if (argc >= 3)
+		caminho_saida = argv[2];
+	
+	
+	file = fopen(caminho_saida, "w");
+	if (file == NULL)
+		return 3;
+	
 	caminho_mapa = argv[1];
 	
-	/*if (argc >= 3)
-		caminho_saida = argv[2];
-	*/
 	if (leia_mapa(&mapa, caminho_mapa))
 	{	
 		fprintf(stdout, "Erro ao ler o mapa.\n");
 		return 2;
 	}
-	posiciona_barco(mapa, barco);
+	
+	posiciona_barco(mapa, &barco);
 	escreva_mapa_tela(mapa);
 	
 	do
 	{
-		naoRemou = rema_barco(mapa, barco);
+		naoRemou = rema_barco(mapa, &barco);
 		naoAtingido = dispara_tiros(mapa, file);
+		
 		escreva_mapa_tela(mapa);
 		escreva_mapa_arquivo(mapa, file);
-		travado = (travado + naoRemou)*naoRemou;
-	} while (naoAtingido && travado < BECO_SEM_SAIDA && !ganhou_jogo(mapa, barco));
+		
+		travado = (travado + naoRemou)*naoRemou; /* Caso ele tenha remado, naoRemou é 0, anulando assim a soma.**/
+		
+		fputc('\n', file);
+	} while (naoAtingido && travado < BECO_SEM_SAIDA && !ganhou_jogo(mapa, &barco));
 	
-	if      (!naoAtingido)
+	if (!naoAtingido)
 	{              
-		fprintf(stdout, "Seu barco foi atingido.\n");
-		fprintf(file, "Seu barco foi atingido.\n");
+		fputs(ATINGIDO, stdout);
+		fputs(ATINGIDO,   file);
 	}
 	else if (travado >= BECO_SEM_SAIDA)
 	{
-		fprintf(stdout, "Seu barco ficou preso.\n");
-		fprintf(file, "Seu barco ficou preso.\n");
+		fputs(PRESO, stdout);
+		fputs(PRESO,   file);
 	}
-	else{
-	        fprintf(stdout, "Você ganhou.\n");
-	        fprintf(file, "Você ganhou.\n");
+	else
+	{
+		fputs(GANHOU, stdout);
+		fputs(GANHOU,   file);
 	}
 	
-	if (caminho_saida != NULL)
-		escreva_mapa_arquivo(mapa, file);
+	escreva_mapa_arquivo(mapa, file);
 	
 	fclose(file);
 	destroi_mapa(&mapa);

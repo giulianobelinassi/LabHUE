@@ -6,16 +6,21 @@
 #ifndef BARCO_H
 #define BARCO_H
 
-#include "mapa.h"
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+struct Mapa; /* Dependencia*/
+#endif
 
 /**
   * Abstração de barco.
   */
-typedef struct
+struct Barco
 {
 	int linha;  /**< Linha atual do barco.*/
 	int coluna; /**< Coluna atual do barco.*/
-} Barco, *pBarco;
+};
+
+/** Notações alternativas para evitar possíveis verborragias.*/
+typedef struct Barco Barco_t, *pBarco_t, *pBarco;
 
 /**
   * Movimenta o barco horizontalmente ou verticalmente, dependendo
@@ -27,7 +32,7 @@ typedef struct
   * @return		1, se o barco não se moveu. <p>
   *			0, se o barco se moveu.
   */
-int rema_barco(pMapa mapa, pBarco barco);
+int rema_barco(struct Mapa* mapa, struct Barco* barco);
 
 /**
   * Lê do teclado a posição inicial do barco e marca com 'B' esta posição
@@ -36,6 +41,6 @@ int rema_barco(pMapa mapa, pBarco barco);
   * @param mapa		Mapa alocado dinamicamente
   * @param barco	Referência ao Barco.
   */
-void posiciona_barco(pMapa mapa, pBarco barco);
+void posiciona_barco(struct Mapa* mapa, struct Barco* barco);
 
 #endif

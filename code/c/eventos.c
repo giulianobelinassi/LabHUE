@@ -1,26 +1,19 @@
-/**
+/*
   * @file 
   * @brief Arquivo implementando funções que lidam com operações eventuais
   */
 
 #include "eventos.h"
-#include <stdio.h>
+#include "mapa.h"
+#include "barco.h"
 #include <stdlib.h>
 
-#ifdef DEBUG
-#include "debug.h"
-#endif
+#define NUMERO_DE_TIROS 3 /** Número de tiros por rodada.*/
 
-#define NUMERO_DE_TIROS 3
-
-int dispara_tiros(Mapa* mapa, FILE* file)
+int dispara_tiros(Mapa_t* mapa, FILE* file)
 {
 	int i, j, k;
 	char resp;
-	#ifdef DEBUG
-	static char funcname[] = "Em: dispara_tiros(%p)\n";
-	debug_message(funcname, mapa);
-	#endif
 	
 	for (k = 0; k < NUMERO_DE_TIROS && resp != 'B'; ++k)
 	{
@@ -29,148 +22,112 @@ int dispara_tiros(Mapa* mapa, FILE* file)
 	}
 
 	if (resp == 'B')
-	{	
-		#ifdef DEBUG
-		debug_message("Prestes a retornar 0\n");
-		#endif
-		
 		return 0; /* O barco não foi atingido*/
-	}
-	#ifdef DEBUG
-	debug_message("Prestes a retornar 1\n");
-	#endif
 	
 	return 1; /* O barco foi atingido.*/
 }
 
-void coordenadas_tiro(const Mapa* mapa, int* i, int* j)
+void coordenadas_tiro(const Mapa_t* mapa, int* i, int* j)
 {
-	#ifdef DEBUG
-	static char funcname[] = "Em: coordenadas_tiro(%p, %p)\n";
-	debug_message(funcname, i, j);
-	#endif
 	
-	*i = sorteia(mapa -> altura);
-	*j = sorteia(mapa -> largura);
+	*i = SORTEIA(mapa -> altura);
+	*j = SORTEIA(mapa -> largura);
 
-	#ifdef DEBUG
-	debug_message("Prestes a retornar\n");
-	#endif
 }
 
-char identifica_alvo_atingido(Mapa* mapa, int i, int j, FILE* file)
+char identifica_alvo_atingido(Mapa_t* mapa, int i, int j, FILE* arquivo)
 {
+	static const char TIRO_ATINGIU[]		= "(%d, %d): O tiro atingiu "; 
+	static const char AGUA[]			= "a água\n";
+	static const char EMBARCACAO_DESTRUIDA[]	= "uma embarcação destruída\n";
+	static const char POSICAO_ANTERIOR[]		= "uma posição anterior do barco\n";
+	static const char O_BARCO[]			= "o barco\n";
+	static const char UMA_EMBARCACAO[]		= "uma embarcação - ";
+	static const char SUBMARINO_DESTRUIDO[]		= "Submarino destruído!\n";
+	static const char DESTROYER_DESTRUIDO[]		= "Destroyer destruído!\n";
+	static const char CRUZADOR_DESTRUIDO[] 		= "Cruzador destruído!\n";
+	static const char PORTA_AVIAO_DESTRUIDO[]	= "Porta-Avião destruído!\n";
+	static const char HIDRO_AVIAO_DESTRUIDO[]	= "Hidro-Avião destruído!\n";
+	
 	char c = mapa -> matriz[i][j];
-	#ifdef DEBUG
-	static char funcname[] = "Em: identifica_alvo_atingido(%p)\n";
-	debug_message(funcname, mapa);
-	#endif
-
+	const char* str = NULL;
+	
 	c = mapa -> matriz[i][j];
-	fprintf(stdout, "(%d, %d): O tiro atingiu ", i, j);
-	fprintf(file, "(%d, %d): O tiro atingiu ", i, j);
+
+	fprintf(stdout , TIRO_ATINGIU, i, j);
+	fprintf(arquivo, TIRO_ATINGIU, i, j);
+
 	if(c == '.' || c == '=')
 	{
-		fprintf(stdout, "a água\n");
-		fprintf(file, "a água\n");
+		str = AGUA;
 		mapa -> matriz[i][j] = '=';
 	}
 	else if(c == '*')
 	{
-		fprintf(stdout, "uma embarcação destruída\n");
-		fprintf(file, "uma embarcação destruída\n");
+		str = EMBARCACAO_DESTRUIDA;
 	}
 	else if(c == '+' || c == 'T')
 	{
-		fprintf(stdout, "uma posição anterior do barco\n");
-		fprintf(file, "uma posição anterior do barco\n");
+		str = POSICAO_ANTERIOR;
 		mapa -> matriz[i][j] = '+';
 	}
 	else if(c == 'B')
 	{
-		fprintf(stdout, "o barco\n");
-		fprintf(file, "o barco\n");
+		str = O_BARCO;
 		mapa -> matriz[i][j] = '!';
 	}
 	else
 	{
-		fprintf(stdout, "uma embarcação - ");
-		fprintf(file, "uma embarcação - ");
-		if     (c == 'S'){
-			fprintf(stdout, "Submarino destruído!\n");
-			fprintf(file, "Submarino destruído!\n");
-		}
+		fprintf(stdout , UMA_EMBARCACAO);
+		fprintf(arquivo, UMA_EMBARCACAO);
+		
+		if(c == 'S')
+			str = SUBMARINO_DESTRUIDO;
 		
 		else if(c == 'D')
 		{
-			fprintf(stdout, "Destroyer destruído!\n");
-			fprintf(file, "Destroyer destruído!\n");
+			str = DESTROYER_DESTRUIDO;
 			afunda_embarcacao(mapa, mapa->matriz[i][j], i, j);
 		}
 		else if(c == 'C')
 		{
-			fprintf(stdout, "Cruzador destruído!\n");
-			fprintf(file, "Cruzador destruído!\n");
+			str = CRUZADOR_DESTRUIDO;
 			afunda_embarcacao(mapa, mapa->matriz[i][j], i, j);
 		}
 		else if(c == 'P')
 		{
-			fprintf(stdout, "Porta-Avião destruído!\n");
-			fprintf(file, "Porta-Avião destruído!\n");
+			str = PORTA_AVIAO_DESTRUIDO;
 			afunda_embarcacao(mapa, mapa->matriz[i][j], i, j);
 		}
 		else if(c == 'H')
 		{
-			fprintf(stdout, "Hidro-Avião destruído!\n");
-			fprintf(file, "Hidro-Avião destruído!\n");
+			str = HIDRO_AVIAO_DESTRUIDO;
 			afunda_embarcacao(mapa, mapa->matriz[i][j], i, j);
 		}
 	}
 	
-	#ifdef DEBUG
-	debug_message("Prestes a retornar '%c'\n", c);
-	#endif
+	fputs(str, stdout);
+	fputs(str, arquivo);
+	
 	return c;
 }
 
 
-void afunda_embarcacao(Mapa* mapa, char tipo, int linha, int coluna)
+void afunda_embarcacao(Mapa_t* mapa, char tipo, int linha, int coluna)
 {
 	int i, j;
-	#ifdef DEBUG
-	static char funcname[] = "Em: afunda_embarcacao(%p)\n";
-	debug_message(funcname, mapa);
-	#endif
 	
 	mapa->matriz[linha][coluna] = '*';
 	for(i = linha - 1; i< mapa->altura; i++)
 		for(j = coluna - 1; i >= 0 && j < mapa->largura; j++)
 			if(j >= 0 && mapa->matriz[i][j] == tipo)
 				afunda_embarcacao(mapa, tipo, i, j);
-	
-	#ifdef DEBUG
-	debug_message("Prestes a retornar\n");
-	#endif
 }
 
 
-int ganhou_jogo(const Mapa* mapa, const Barco* barco)
-{
-	#ifdef DEBUG
-	static char funcname[] = "Em: ganhou_jogo(%p, %p)\n";
-	debug_message(funcname, mapa, barco);
-	#endif
-	
-	if (barco->linha >= mapa->altura-1)
-	{	
-		#ifdef DEBUG
-		debug_message("Prestes a retornar 1\n");
-		#endif
+int ganhou_jogo(const Mapa_t* mapa, const Barco_t* barco)
+{	
+	if (barco->linha >= mapa->altura-1)	
 		return 1;
-	}
-		
-	#ifdef DEBUG
-	debug_message("Prestes a retornar 0\n");
-	#endif
 	return 0;
 }

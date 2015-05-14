@@ -1,6 +1,6 @@
 #Flags do compilador, linkeditor, e utilitários
 CC=gcc
-CFLAGS=-Wall -O3 -pedantic -c -g -D DEBUG
+CFLAGS=-Wall -O3 -pedantic -c -Wno-unused-result
 LDFLAGS=
 MKDIR=mkdir
 MKFLAGS=-p
@@ -15,8 +15,8 @@ MAPS_DIR=res/mapas/
 DESTMAPS_DIR=$(addprefix $(BIN_DIR), mapas)
 
 #Arquivos-fonte
-SOURCES=mapa.c barco.c eventos.c debug.c main.c
-LOGFILE=logfile.txt
+SOURCES=mapa.c barco.c eventos.c main.c
+LOGFILE=saida.txt
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=fuganaval
 

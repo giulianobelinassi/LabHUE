@@ -1,24 +1,17 @@
-/**
+/*
   * @file 
   * @brief Arquivo implementando as funções que lidam com operações navais
   */
 
 #include "barco.h"
+#include "mapa.h"
 #include <stdio.h>
-
-#ifdef DEBUG
-#include "debug.h"
-#endif
 
 int rema_barco(pMapa mapa, pBarco barco)
 {
 	char mov;
 	int naoRemou = 1;
-	#ifdef DEBUG
-	static char funcname[] = "Chamado: rema_barco(%p, %p)\n";
-	debug_message(funcname, mapa, barco);
-	#endif
-	
+		
 	printf("Mova o barco\n");
 	printf("(b)baixo  (e)esquerda  (d)direita\n");
 	fscanf(stdin, " %c", &mov);
@@ -55,30 +48,19 @@ int rema_barco(pMapa mapa, pBarco barco)
 		break;								
 	}
 
-	#ifdef DEBUG
-	debug_message("Prestes a retornar %d\n", naoRemou);
-	#endif
 	return naoRemou;
 }
 
 void posiciona_barco(pMapa mapa, pBarco barco)
 {
 	int pos;
-	#ifdef DEBUG
-	static char funcname[] = "Chamado: posiciona_barco(%p, %p)\n";
-	debug_message(funcname, mapa, barco);
-	#endif
 	
 	for (pos = 0; pos < mapa->largura && mapa->matriz[0][pos] != 'B'; ++pos)
 		; /* Procura um barco já inserido no mapa.*/
 	
-	if (pos < mapa->largura)
-	{
-		#ifdef DEBUG
-		debug_message("Encontrado um barco pré-definido\n");
-		#endif
+	if (pos < mapa->largura) /* Se encontrou*/
 		mapa->matriz[0][pos] = '.';
-	}	
+	
 
 	printf("Escolha uma coluna para posicionar o barco. ");
 	printf("Entre com uma coluna válida: entre 0 e %d\n", (mapa -> largura - 1));
@@ -92,8 +74,4 @@ void posiciona_barco(pMapa mapa, pBarco barco)
 	mapa -> matriz[0][pos] = 'B';
 	barco->linha = 0;
 	barco->coluna = pos;
-
-	#ifdef DEBUG
-	debug_message("Prestes a retornar\n");
-	#endif
 }

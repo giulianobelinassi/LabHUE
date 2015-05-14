@@ -3,31 +3,34 @@
   * @brief Arquivo contendo os escopos das funções e estruturas que lidam com operações eventuais
   */
  
+#include <stdio.h>
 
 #ifndef EVENTOS_H
 #define EVENTOS_H
 
-#include "mapa.h"
-#include "barco.h"
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+struct Mapa;  /* Dependencias*/
+struct Barco;
+#endif
 
 /**
   * Função inline.<p>
   * Sorteia com a seguinte regra matemática: <p>
-  * 1 + (rand()/RAND_MAX+1.0))*k
-  *
+  * \f$sorteia(k) = \frac{rand()}{1 + R_{max}}\cdot k\f$
   */
-#define sorteia(k) ((int)((rand()/(RAND_MAX+1.0))*(k)))
+#define SORTEIA(k) ((int)((rand()/(RAND_MAX+1.0))*(k)))
 
 /**
   * Determina os três tiros a serem disparados pelo computador, a cada remada. Imprime as
   * mensagens correspondentes ao efeito de cada tiro, e atualiza a matriz representando o mapa.
   *
   * @param mapa		Mapa alocado dinamicamente.
+  * @param arquivo	Arquivo para escrever os logs.
   * @author		Rodrigo, Thais
   * @return 		0, se o barco não foi atingido. <p>
   *			1, caso contrário.
   */
-int dispara_tiros(Mapa* mapa, FILE* file);
+int dispara_tiros(struct Mapa* mapa, FILE* arquivo);
 
 /**
   * Determina as coordenadas de um tiro, utilizando a função sorteia.
@@ -37,7 +40,7 @@ int dispara_tiros(Mapa* mapa, FILE* file);
   * @param j		Coluna sorteada passada por referência.
   *
   */
-void coordenadas_tiro(const Mapa* mapa, int* i, int* j);
+void coordenadas_tiro(const struct Mapa* mapa, int* i, int* j);
 
 /**
  * Imprime as coordenadas de um tiro e a mensagem correspondente ao efeito desse tiro.
@@ -52,9 +55,10 @@ void coordenadas_tiro(const Mapa* mapa, int* i, int* j);
  * @param i		i-ésima linha.
  * @param j		j-ésima coluna.
  * @author		Rodrigo, Thais
+ * @param arquivo	Arquivo para escrever os logs.
  * @return		Caractere correspondente ao alvo atingido.
  */
-char identifica_alvo_atingido(Mapa* mapa, int i, int j, FILE* file);
+char identifica_alvo_atingido(struct Mapa* mapa, int i, int j, FILE* arquivo);
 
 /**
  * Afunda totalmente a embarcacao atingida por um tiro; ou seja, atribui '∗' a todas as posições
@@ -70,7 +74,7 @@ char identifica_alvo_atingido(Mapa* mapa, int i, int j, FILE* file);
  * @param coluna	Coluna
  * @author		Thais
  */
-void afunda_embarcacao(Mapa* mapa, char tipo, int linha, int coluna);
+void afunda_embarcacao(struct Mapa* mapa, char tipo, int linha, int coluna);
 
 /**
   * Verifica se o jogo foi ganho.
@@ -80,6 +84,6 @@ void afunda_embarcacao(Mapa* mapa, char tipo, int linha, int coluna);
   *			0, caso contrário.
   * @author		Giuliano
   */
-int ganhou_jogo(const Mapa* mapa, const Barco* barco);
+int ganhou_jogo(const struct Mapa* mapa, const struct Barco* barco);
 
 #endif
