@@ -1,0 +1,35 @@
+EP2 - MAC0211 Laboratório de Programação
+Projeto Bombardeio Naval (parte1) - BCC IMEUSP 2015
+
+Integrantes do grupo:
+
+Giuliano ???  ???    nUSP ??????? 
+Rodrigo  ???  ???    nUSP ???????
+Thais Lima de Sousa  nUSP 8941220 
+
+------------- Relatório -------------
+
+
+	FASE 1: Divisão de tarefas
+
+	As atividades foram divididas conforme o tipo das funções:
+	barco, mapa e eventos. Foram desenvolvidas as abstrações necessárias e, 
+	a partir disso, estruturas de dados foram criadas.
+
+	/* falar sobre o debugger e etc */
+
+
+	FASE 2: Implementações
+
+	As funções de barco foram inicialmente testadas em um programa simples, à parte.
+	A função posiciona_barco() foi escrita de forma que só executa a ação quando 
+	a posição escolhida for válida, excluindo, assim, a possibilidade de o usuário entrar
+	com um valor de coluna que não exista ou que esteja ocupado por uma embarcação.
+	A função rema_barco() segue o mesmo raciocínio.
+
+	Decidiu-se criar apenas uma função para afundar embarcações, ao invés de uma 
+	para cada tipo. A função recursiva busca toda as adjacencias da embarcação e as elimina,
+	sem precisar se preocupar com a posição (horizontal, vertical, diagonal) nem com o 
+	número de posições ocupadas por ela.
+
+	/* falar sobre otimizações e etc */
