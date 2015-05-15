@@ -33,3 +33,8 @@ Thais Lima de Sousa  nUSP 8941220
 	número de posições ocupadas por ela.
 
 	/* falar sobre otimizações e etc */
+
+	FASE 3: Pequenos ajustes
+
+	rema_barco() implementada e testada para se deslocar para posições de embarcações que 
+	afundaram.
