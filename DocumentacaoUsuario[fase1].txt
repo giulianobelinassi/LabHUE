@@ -16,7 +16,7 @@ $ ./fuganaval caminho_para_mapa.dat caminho_mapa_saida.dat
 O mapa é carregado na tela e a batalha começa.
 
 (1) Posicione seu barco em uma das colunas da primeira linha, digitando o número correspondente
-	no teclado (se conter um barco no seu mapa, essa etapa será pulada);
+	no teclado;
 (2) Reme seu barco: escolha (b)baixo  (e)esquerda  (d)direita - entre com a letra correspondente
     e aperte ENTER;
 (3) Proteja-se dos tiros! As embarcações afetadas por eles são destruídas instantaneamente.
