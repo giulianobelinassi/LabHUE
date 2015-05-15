@@ -7,6 +7,13 @@
 #include "mapa.h"
 #include <stdio.h>
 
+int p_valida(char c)
+{
+	if (c == 'T' || c == '=' || c == '*' || c == '+' || c == '!' || c == '.')
+		return 1;
+	return 0;
+}
+
 int rema_barco(pMapa mapa, pBarco barco)
 {
 	char mov;
@@ -18,7 +25,7 @@ int rema_barco(pMapa mapa, pBarco barco)
 	switch(mov)
 	{
 		case 'b':	
-			if(barco->linha + 1 < mapa->altura && mapa->matriz[barco->linha + 1][barco->coluna] == '.')
+			if(barco->linha + 1 < mapa->altura && p_valida(mapa->matriz[barco->linha + 1][barco->coluna]))
 			{
 				mapa->matriz[barco->linha][barco->coluna] = 'T';
 				mapa->matriz[barco->linha + 1][barco->coluna] = 'B';
@@ -28,7 +35,7 @@ int rema_barco(pMapa mapa, pBarco barco)
 		break;
 		
 		case 'e':
-			if(barco->coluna - 1 >= 0 && mapa->matriz[barco->linha][barco->coluna - 1] == '.')
+			if(barco->coluna - 1 >= 0 && p_valida(mapa->matriz[barco->linha][barco->coluna - 1]))
 			{
 				mapa->matriz[barco->linha][barco->coluna] = 'T';
 				mapa->matriz[barco->linha][barco->coluna - 1] = 'B';
@@ -38,7 +45,7 @@ int rema_barco(pMapa mapa, pBarco barco)
 		break;
 		
 		case 'd':
-			if(barco->coluna + 1 >= 0 && mapa->matriz[barco->linha][barco->coluna + 1] == '.')
+			if(barco->coluna + 1 >= 0 && p_valida(mapa->matriz[barco->linha][barco->coluna + 1]))
 			{
 				mapa->matriz[barco->linha][barco->coluna] = 'T';
 				mapa->matriz[barco->linha][barco->coluna + 1] = 'B';

@@ -23,6 +23,14 @@ struct Barco
 typedef struct Barco Barco_t, *pBarco_t, *pBarco;
 
 /**
+  * Verifica se a posição é válida. Ou seja, se não há uma embarcação
+  * na posição. Quando uma embarcação é afundada, ela abre caminho para
+  * o barco passar.
+  * @param c caracter correspondente a situação da posição
+  */
+int p_valida(char c);
+
+/**
   * Movimenta o barco horizontalmente ou verticalmente, dependendo
   * da entrada do teclado, tomando o cuidado de não colidir com outra
   * embarcação. As posições anteriormente ocupadas pelo barco são
