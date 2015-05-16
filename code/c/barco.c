@@ -7,7 +7,14 @@
 #include "mapa.h"
 #include <stdio.h>
 
-int p_valida(char c)
+/**
+  * Verifica se a posição é válida. Ou seja, se não há uma embarcação
+  * na posição. Quando uma embarcação é afundada, ela abre caminho para
+  * o barco passar.
+  * @param		c caracter correspondente a situação da posição.
+  * @return		1 se válido, 0 caso contrário. 
+  */
+static int p_valida(char c)
 {
 	if (c == 'T' || c == '=' || c == '*' || c == '+' || c == '!' || c == '.')
 		return 1;

@@ -20,8 +20,10 @@ struct Mapa
 	
 };
 
-/** Notações alternativas para evitar possíveis verborragias.*/
-typedef struct Mapa Mapa_t, *pMapa_t, *pMapa;
+/* Notações alternativas para evitar possíveis verborragias.*/
+typedef struct Mapa Mapa_t,   /** Typedef padrão*/
+                    *pMapa_t, /** Typedef apontador*/
+                    *pMapa;   /** Typedef apontador*/
 
 /** 
   * Cria um mapa alocado dinamicamente.

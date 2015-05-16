@@ -19,16 +19,11 @@ struct Barco
 	int coluna; /**< Coluna atual do barco.*/
 };
 
-/** Notações alternativas para evitar possíveis verborragias.*/
-typedef struct Barco Barco_t, *pBarco_t, *pBarco;
+/* Notações alternativas para evitar possíveis verborragias.*/
+typedef struct Barco Barco_t,   /** Typedef padrão*/
+                     *pBarco_t, /** Typedef apontador*/
+                     *pBarco;   /** Typedef apontador*/
 
-/**
-  * Verifica se a posição é válida. Ou seja, se não há uma embarcação
-  * na posição. Quando uma embarcação é afundada, ela abre caminho para
-  * o barco passar.
-  * @param c caracter correspondente a situação da posição
-  */
-int p_valida(char c);
 
 /**
   * Movimenta o barco horizontalmente ou verticalmente, dependendo

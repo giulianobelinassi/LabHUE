@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 	
 	if (argc < 2)
 	{
-		fprintf(stdout, "Uso: %s caminho_para_mapa.dat caminho_mapa_saida.dat\n", argv[0]);
+		fprintf(stdout, "Uso: %s caminho_para_mapa.dat caminho_texto_saida.txt\n", argv[0]);
 		return 1;
 	}
 	
@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
 		escreva_mapa_tela(mapa);
 		escreva_mapa_arquivo(mapa, file);
 		
-		travado = (travado + naoRemou)*naoRemou; /* Caso ele tenha remado, naoRemou é 0, anulando assim a soma.**/
+		travado = (travado + naoRemou)*naoRemou; /* Caso ele tenha remado, naoRemou é 0, anulando a soma.**/
 		
 		fputc('\n', file);
 	} while (naoAtingido && travado < BECO_SEM_SAIDA && !ganhou_jogo(mapa, &barco));

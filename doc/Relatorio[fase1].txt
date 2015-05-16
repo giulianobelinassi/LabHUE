@@ -1,0 +1,68 @@
+EP2 - MAC0211           Laboratório de Programação I
+Projeto Bombardeio Naval (parte1) - BCC IME-USP 2015
+
+Integrantes do grupo:
+
+Giuliano Augusto Faulin Belinassi         nUSP 8517272 
+Rodrigo Enju                              nUSP ???????
+Thais Lima de Sousa                       nUSP 8941220 
+
+------------- Relatório -------------
+
+
+	FASE 1: Divisão de tarefas
+
+	As atividades foram divididas conforme o tipo das funções:
+	barco, mapa e eventos. Foram desenvolvidas as abstrações necessárias e, 
+	a partir disso, estruturas de dados foram criadas.
+
+	Criamos funções e macros exclusivos para debugging, logando informações em um
+	arquivo para que pudessemos nos orientar melhor e de forma mais eficiente. 
+	É claro que também usamos o GDB para a tarefa.
+	
+	Escolhemos um programa para geração automática de documentação através de comentários
+	chamado doxygen. A documentação de desenvolvedor foi gerada para uma página web, de
+	forma parecida com o Javadoc.
+	
+
+	
+	FASE 2: Implementações
+
+	As funções de barco foram inicialmente testadas em um programa simples, à parte.
+	A função posiciona_barco() foi escrita de forma que só executa a ação quando 
+	a posição escolhida for válida, excluindo, assim, a possibilidade de o usuário entrar
+	com um valor de coluna que não exista ou que esteja ocupado por uma embarcação.
+	A função rema_barco() segue o mesmo raciocínio.
+
+	Decidiu-se criar apenas uma função para afundar embarcações, ao invés de uma 
+	para cada tipo. A função recursiva busca toda as adjacencias da embarcação e as elimina,
+	sem precisar se preocupar com a posição (horizontal, vertical, diagonal) nem com o 
+	número de posições ocupadas por ela.
+
+	Embora algumas funções não precisem necessariamente estar definidas em headers pois 
+	seriam apenas de uso interno, optamos por mantê-las nos mesmos para evitar possíveis 
+	problemas com a especificação do programa.
+	
+	Evitamos ao máximo incluir bibliotecas nos headers para uma melhor independência, mas
+	como consequência tivemos um pequeno problema de verborragia, afetando talvez a leitura
+	e clareza dos cabeçalhos.
+	
+	Encontramos algumas dificuldades, porém a principal foi um problema com a função
+	SORTEIA() que sua imagem não condizia com a especificação, obrigando-nos a modificá-la.
+	
+	
+	
+	FASE 3: Pequenos ajustes
+
+	Removemos as funções, macros e flags de debugging e especificamos uma taxa alta de
+	otimização. Notamos que a recursão foi expandida, evitando assim chamadas desneces-
+	sárias de subrotinas.
+	
+	rema_barco() implementada e testada para se deslocar para posições de embarcações que 
+	afundaram.
+	
+	posiciona_barco() procura por um barco pre-especificado no mapa e remove-o para
+	impor verossimilhança com a especificação.
+	
+	pequenas modificações para uma lógica mais flúida e suave. 
+	

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>Fuga Naval: Código-Fonte de code/h/eventos.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Fuga Naval
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&#160;de&#160;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Globais</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a class="el" href="dir_e4a43ff3de7fea5a7d166025413efe7b.html">h</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">eventos.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="eventos_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef EVENTOS_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define EVENTOS_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef DOXYGEN_SHOULD_SKIP_THIS</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">struct </span><a class="code" href="structMapa.html">Mapa</a>;  <span class="comment">/* Dependencias*/</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">struct </span><a class="code" href="structBarco.html">Barco</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="eventos_8h.html#a062db28171aea0e06d43bb752cf8e953">   21</a></span>&#160;<span class="preprocessor">#define SORTEIA(k) ((int)((rand()/(RAND_MAX+1.0))*(k)))</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">int</span> <a class="code" href="eventos_8h.html#a4ba3321a67be03face1756419b85ef2d">dispara_tiros</a>(<span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, FILE* arquivo);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="eventos_8h.html#a9719ffd0c81321c5e2dfe863ee314d0c">coordenadas_tiro</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, <span class="keywordtype">int</span>* i, <span class="keywordtype">int</span>* j);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">char</span> <a class="code" href="eventos_8h.html#a475e18165f8e10498809fa667dc8b18d">identifica_alvo_atingido</a>(<span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, FILE* arquivo);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> <a class="code" href="eventos_8h.html#ab8aa6f758ef7858b806c156ee8525023">afunda_embarcacao</a>(<span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, <span class="keywordtype">char</span> tipo, <span class="keywordtype">int</span> <a class="code" href="structBarco.html#a5acd39efb793a31efd6c21ba9790a910">linha</a>, <span class="keywordtype">int</span> <a class="code" href="structBarco.html#a3a34d5834d17d48496ce8f4e5dac6216">coluna</a>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">int</span> <a class="code" href="eventos_8h.html#ac780f8ec0782c914c6a72fa389028d9e">ganhou_jogo</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code" href="structBarco.html">Barco</a>* barco);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="structMapa_html"><div class="ttname"><a href="structMapa.html">Mapa</a></div><div class="ttdef"><b>Definition:</b> mapa.h:15</div></div>
+<div class="ttc" id="structBarco_html_a5acd39efb793a31efd6c21ba9790a910"><div class="ttname"><a href="structBarco.html#a5acd39efb793a31efd6c21ba9790a910">Barco::linha</a></div><div class="ttdeci">int linha</div><div class="ttdef"><b>Definition:</b> barco.h:18</div></div>
+<div class="ttc" id="eventos_8h_html_ac780f8ec0782c914c6a72fa389028d9e"><div class="ttname"><a href="eventos_8h.html#ac780f8ec0782c914c6a72fa389028d9e">ganhou_jogo</a></div><div class="ttdeci">int ganhou_jogo(const struct Mapa *mapa, const struct Barco *barco)</div></div>
+<div class="ttc" id="eventos_8h_html_a4ba3321a67be03face1756419b85ef2d"><div class="ttname"><a href="eventos_8h.html#a4ba3321a67be03face1756419b85ef2d">dispara_tiros</a></div><div class="ttdeci">int dispara_tiros(struct Mapa *mapa, FILE *arquivo)</div><div class="ttdef"><b>Definition:</b> eventos.c:13</div></div>
+<div class="ttc" id="structBarco_html_a3a34d5834d17d48496ce8f4e5dac6216"><div class="ttname"><a href="structBarco.html#a3a34d5834d17d48496ce8f4e5dac6216">Barco::coluna</a></div><div class="ttdeci">int coluna</div><div class="ttdef"><b>Definition:</b> barco.h:19</div></div>
+<div class="ttc" id="structBarco_html"><div class="ttname"><a href="structBarco.html">Barco</a></div><div class="ttdef"><b>Definition:</b> barco.h:16</div></div>
+<div class="ttc" id="eventos_8h_html_a475e18165f8e10498809fa667dc8b18d"><div class="ttname"><a href="eventos_8h.html#a475e18165f8e10498809fa667dc8b18d">identifica_alvo_atingido</a></div><div class="ttdeci">char identifica_alvo_atingido(struct Mapa *mapa, int i, int j, FILE *arquivo)</div><div class="ttdef"><b>Definition:</b> eventos.c:38</div></div>
+<div class="ttc" id="eventos_8h_html_ab8aa6f758ef7858b806c156ee8525023"><div class="ttname"><a href="eventos_8h.html#ab8aa6f758ef7858b806c156ee8525023">afunda_embarcacao</a></div><div class="ttdeci">void afunda_embarcacao(struct Mapa *mapa, char tipo, int linha, int coluna)</div><div class="ttdef"><b>Definition:</b> eventos.c:116</div></div>
+<div class="ttc" id="eventos_8h_html_a9719ffd0c81321c5e2dfe863ee314d0c"><div class="ttname"><a href="eventos_8h.html#a9719ffd0c81321c5e2dfe863ee314d0c">coordenadas_tiro</a></div><div class="ttdeci">void coordenadas_tiro(const struct Mapa *mapa, int *i, int *j)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sexta, 15 de Maio de 2015 21:36:19 para Fuga Naval por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

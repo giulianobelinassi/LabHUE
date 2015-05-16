@@ -1,0 +1,1 @@
+\form#0:$sorteia(k) = \frac{rand()}{1 + R_{max}}\cdot k$

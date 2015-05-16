@@ -27,7 +27,7 @@ DIROBJ=$(addprefix $(O_DIR), $(OBJECTS))
 all: $(OBJECTS) bin maps
 
 #Cria documentação. Note a dependência do Doxygen.
-documentation: Doxifile
+doc: Doxifile
 	 doxygen -w html headerFile footerFile styleSheetFile Doxifile
 	 doxygen Doxifile
 	 rm -f headerFile footerFile styleSheetFile
@@ -48,8 +48,10 @@ maps:
 
 #Limpa
 clean:
-	rm -rf doc/html
-	rm -rf doc/latex
 	rm -f $(DIROBJ) $(BIN_DIR)$(EXECUTABLE) $(BIN_DIR)$(LOGFILE)
 	rm -rf $(DESTMAPS_DIR)
+
+clean_doc:
+	rm -rf doc/html
+	rm -rf doc/latex
 	
