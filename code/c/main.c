@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 	const static char ARQ_SAIDA[] = "saida.txt";
 	const static char ATINGIDO[]  = "Seu barco foi atingido!\n";
 	const static char PRESO[]     = "Seu barco ficou preso!\n";
-	const static char GANHOU[]    = "Você Ganhou!";
+	const static char GANHOU[]    = "Você Ganhou!\n";
 
 	Mapa_t* mapa;
 	Barco_t barco;

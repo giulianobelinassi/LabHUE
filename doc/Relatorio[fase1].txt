@@ -4,7 +4,7 @@ Projeto Bombardeio Naval (parte1) - BCC IME-USP 2015
 Integrantes do grupo:
 
 Giuliano Augusto Faulin Belinassi         nUSP 8517272 
-Rodrigo Enju                              nUSP ???????
+Rodrigo Aparecido Enju                    nUSP 8941105
 Thais Lima de Sousa                       nUSP 8941220 
 
 ------------- Relatório -------------
