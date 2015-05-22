@@ -1,0 +1,14 @@
+#ifndef GRAFICOS_H
+#define GRAFICOS_H
+
+/**
+ * Converte coordenadas matriciais para cartesianas.
+ * @param i
+ * @param j
+ */
+void matricial_para_cartesiana(int i, int j, int* x, int* y);
+
+
+void cartesiana_para_matricial(int* i, int* int x, int y);
+
+#endif

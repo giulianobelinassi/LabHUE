@@ -17,6 +17,7 @@ struct Barco
 {
 	int linha;  /**< Linha atual do barco.*/
 	int coluna; /**< Coluna atual do barco.*/
+	char bussola; /**< Direção segundo a rosa dos ventos (e; b; d)*/
 };
 
 /* Notações alternativas para evitar possíveis verborragias.*/

@@ -1,22 +1,29 @@
 #Flags do compilador, linkeditor, e utilitários
 CC=gcc
-CFLAGS=-Wall -O3 -pedantic -c -Wno-unused-result
-LDFLAGS=
+CFLAGS=-Wall -O3 -pedantic -c -Wno-unused-result 
+LDFLAGS=-lm -lXpm -lX11
 MKDIR=mkdir
 MKFLAGS=-p
+DEL=rm
+DELTREE=rm -r
+DELFLAGS=-f
+COPY=cp
 
 #Variáveis de controle de ambiente
 C_DIR=code/c/
 H_DIR=code/h/
 O_DIR=code/o/
+DOC_DIR=doc/
 INCLUDE=-I$(H_DIR)
 BIN_DIR=bin/
 MAPS_DIR=res/mapas/
 DESTMAPS_DIR=$(addprefix $(BIN_DIR), mapas)
 
 #Arquivos-fonte
-SOURCES=mapa.c barco.c eventos.c main.c
+SOURCES=mapa.c barco.c eventos.c main.c xwc.c graficos.c
 LOGFILE=saida.txt
+DOXYSTUFF=headerFile footerFile styleSheetFile
+DOXYFILE=Doxifile
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=fuganaval
 
@@ -27,10 +34,10 @@ DIROBJ=$(addprefix $(O_DIR), $(OBJECTS))
 all: $(OBJECTS) bin maps
 
 #Cria documentação. Note a dependência do Doxygen.
-doc: Doxifile
-	 doxygen -w html headerFile footerFile styleSheetFile Doxifile
-	 doxygen Doxifile
-	 rm -f headerFile footerFile styleSheetFile
+doc: $(DOXYFILE)
+	 doxygen -w $(DOXYSTUFF) $(DOXYFILE)
+	 doxygen $(DOXYFILE)
+	 $(DEL) $(DELFLAGS) $(DOXYSTUFF)
 
 #Cria arquivo objeto.
 %o: $(C_DIR)%c
@@ -40,18 +47,17 @@ doc: Doxifile
 #Cria binário
 bin: $(OBJECTS)
 	$(MKDIR) $(MKFLAGS) $(BIN_DIR)
-	$(CC) $(LDFLAGS) $(DIROBJ) -o $(BIN_DIR)$(EXECUTABLE) 
+	$(CC) $(DIROBJ) -o $(BIN_DIR)$(EXECUTABLE) $(LDFLAGS)
 	
 maps:
 	$(MKDIR) $(MKFLAGS) $(DESTMAPS_DIR)
-	cp $(MAPS_DIR)* $(DESTMAPS_DIR)
+	$(COPY) $(MAPS_DIR)* $(DESTMAPS_DIR)
 
 #Limpa
 clean:
-	rm -f $(DIROBJ) $(BIN_DIR)$(EXECUTABLE) $(BIN_DIR)$(LOGFILE)
-	rm -rf $(DESTMAPS_DIR)
+	$(DEL) $(DELFLAGS) $(DIROBJ) $(BIN_DIR)$(EXECUTABLE) $(BIN_DIR)$(LOGFILE)
+	$(DELTREE) $(DELFLAGS) $(DESTMAPS_DIR)
 
 clean_doc:
-	rm -rf doc/html
-	rm -rf doc/latex
+	$(DELTREE) $(DELFLAGS) $(DOC_DIR)html
 	

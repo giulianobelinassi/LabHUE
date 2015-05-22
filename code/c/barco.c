@@ -31,7 +31,8 @@ int rema_barco(pMapa mapa, pBarco barco)
 	fscanf(stdin, " %c", &mov);
 	switch(mov)
 	{
-		case 'b':	
+		case 'b':
+			barco->bussola = 'b';
 			if(barco->linha + 1 < mapa->altura && p_valida(mapa->matriz[barco->linha + 1][barco->coluna]))
 			{
 				mapa->matriz[barco->linha][barco->coluna] = 'T';
@@ -42,6 +43,7 @@ int rema_barco(pMapa mapa, pBarco barco)
 		break;
 		
 		case 'e':
+			barco->bussola = 'e';
 			if(barco->coluna - 1 >= 0 && p_valida(mapa->matriz[barco->linha][barco->coluna - 1]))
 			{
 				mapa->matriz[barco->linha][barco->coluna] = 'T';
@@ -52,6 +54,7 @@ int rema_barco(pMapa mapa, pBarco barco)
 		break;
 		
 		case 'd':
+			barco->bussola = 'd';
 			if(barco->coluna + 1 >= 0 && p_valida(mapa->matriz[barco->linha][barco->coluna + 1]))
 			{
 				mapa->matriz[barco->linha][barco->coluna] = 'T';
@@ -88,4 +91,5 @@ void posiciona_barco(pMapa mapa, pBarco barco)
 	mapa -> matriz[0][pos] = 'B';
 	barco->linha = 0;
 	barco->coluna = pos;
+	barco->bussola = 'b';
 }
