@@ -4,6 +4,7 @@
 #include "mapa.h"
 #include "barco.h"
 #include "eventos.h"
+#include "graficos.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -18,10 +19,10 @@
   */
 int main(int argc, char* argv[])
 {
-	const static char ARQ_SAIDA[] = "saida.txt";
-	const static char ATINGIDO[]  = "Seu barco foi atingido!\n";
-	const static char PRESO[]     = "Seu barco ficou preso!\n";
-	const static char GANHOU[]    = "Você Ganhou!\n";
+	static const char ARQ_SAIDA[] = "saida.txt";
+	static const char ATINGIDO[]  = "Seu barco foi atingido!\n";
+	static const char PRESO[]     = "Seu barco ficou preso!\n";
+	static const char GANHOU[]    = "Você Ganhou!\n";
 
 	Mapa_t* mapa;
 	Barco_t barco;
@@ -32,6 +33,11 @@ int main(int argc, char* argv[])
 	FILE* file;
 	
 	int naoAtingido, naoRemou, travado = 0;
+	
+	struct Win* win;
+	struct Graficos* graficos;
+	
+	
 	srand(time(NULL));
 	
 	if (argc < 2)
@@ -58,14 +64,17 @@ int main(int argc, char* argv[])
 	
 	posiciona_barco(mapa, &barco);
 	escreva_mapa_tela(mapa);
+	win = inicializa_janela(&graficos, mapa);
+	exibe_janela(win);
 	
 	do
 	{
-		naoRemou = rema_barco(mapa, &barco);
+		naoRemou = rema_barco(win, mapa, &barco);
 		naoAtingido = dispara_tiros(mapa, file);
 		
 		escreva_mapa_tela(mapa);
 		escreva_mapa_arquivo(mapa, file);
+		desenha_mapa_janela(win, graficos, mapa, &barco);
 		
 		travado = (travado + naoRemou)*naoRemou; /* Caso ele tenha remado, naoRemou é 0, anulando a soma.**/
 		
@@ -76,21 +85,25 @@ int main(int argc, char* argv[])
 	{              
 		fputs(ATINGIDO, stdout);
 		fputs(ATINGIDO,   file);
+		desenha_mensagem_janela(win, ATINGIDO);
 	}
 	else if (travado >= BECO_SEM_SAIDA)
 	{
 		fputs(PRESO, stdout);
 		fputs(PRESO,   file);
+		desenha_mensagem_janela(win, PRESO);
 	}
 	else
 	{
 		fputs(GANHOU, stdout);
 		fputs(GANHOU,   file);
+		desenha_mensagem_janela(win, GANHOU);
 	}
 	
 	escreva_mapa_arquivo(mapa, file);
-	
+	scanf(" %d ", &naoAtingido);
 	fclose(file);
+	destroi_janela(win);
 	destroi_mapa(&mapa);
 	
 	

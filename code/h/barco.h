@@ -8,6 +8,7 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 struct Mapa; /* Dependencia*/
+struct Win;
 #endif
 
 /**
@@ -36,7 +37,7 @@ typedef struct Barco Barco_t,   /** Typedef padrão*/
   * @return		1, se o barco não se moveu. <p>
   *			0, se o barco se moveu.
   */
-int rema_barco(struct Mapa* mapa, struct Barco* barco);
+int rema_barco(struct Win* win, struct Mapa* mapa, struct Barco* barco);
 
 /**
   * Lê do teclado a posição inicial do barco e marca com 'B' esta posição

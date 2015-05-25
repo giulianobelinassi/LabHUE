@@ -12,13 +12,14 @@ struct Barco;
 struct Win; /* Alguma biblioteca compatível com xwc do Gubitoso.*/
 /**/
 
-/** Largura em pixels de uma cédula*/
-#define DIM_X    48
+/** Largura em pixels de uma cédula. Note que a contagem inicia-se de zero.*/
+#define DIM_X    47
 /** Altura em pixels de uma cédula*/
-#define DIM_Y    48
+#define DIM_Y    47
 
-/** Quantidade de orientações do barco.*/
+/** Quantidade de orientações do barco. Note que a contagem inicia-se de zero.*/
 #define FRAMES_BARCO 3
+enum {BARCO_E, BARCO_B, BARCO_D} FBARCO;
 
 /** Struct guardando todos os possíveis gráficos (Conjunto de buffers).*/
 struct Graficos
@@ -26,8 +27,9 @@ struct Graficos
 	struct Win* barco[FRAMES_BARCO]; /**< Os 3 frames do barco */
 	struct Win* agua;                /**< Cédula água          */
 	struct Win* destroco;            /**< Cédula destroço      */
-	struct Win* onda;                /**< Cédula onda          */
 	struct Win* rastro;              /**< Cédula rastro        */
+	struct Win* tiro;                /**< Cédula tiro          */
+	struct Win* onda;                /**< Cédula onda          */
 };
 
 typedef struct Graficos Graficos_t;
@@ -36,18 +38,26 @@ typedef struct Graficos *pGraficos;
 
 /**
   * Carrega as imagens em .xpm para uma estrutura com os buffers.
-  * @param graficos		Conjunto de buffers;
-  * @return			0, se sucesso.
+  * @param graficos		Conjunto de buffers passado por referência;
+  * @return			Graficos.
   */
-int carrega_graficos(struct Graficos* graficos);
+struct Graficos* carrega_graficos(struct Win* win);
+
+/**
+  * Apaga o buffer.
+  * @param graficos		Conjunto de buffers passado por referência;
+  */
+void destroi_graficos(struct Graficos** graficos);
 
 /** Carrega todos os recursos, cria uma janela com as dimensões do mapa,
   * preenche-o com água, e retorna a janela.
-  * @param graficos		Conjunto de buffers gráficos.
+  * @param graficos		Referência a um conjunto de buffers gráficos.
+  				Note que ele será criado dentro da função,
+  				então temos uma passagem por referência.
   * @param mapa			Mapa.
   * @return 			Janela.
   */
-struct Win* inicializa_tela(struct Graficos* graficos, const struct Mapa* mapa);
+struct Win* inicializa_janela(struct Graficos** graficos, const struct Mapa* mapa);
 
 /** Desenha uma cédula na tela.
   * @param win			Janela.
@@ -57,33 +67,59 @@ struct Win* inicializa_tela(struct Graficos* graficos, const struct Mapa* mapa);
   * @param i			Linha da matriz.
   * @param j			Coluna da matriz.
   */
-void desenha_celula_tela(struct Win* win, const struct Mapa* mapa, const struct Graficos* graficos, int variacao, int i, int j);
+void desenha_cedula_janela(struct Win* win, const struct Graficos* graficos, const struct Mapa* mapa, int variacao, int i, int j);
 
 /**
- * Converte coordenadas matriciais para cartesianas.
- * param mapa		As dimensões do mapa são necessárias.
- * @param i		Linha em coordenada matricial.
- * @param j		Coluna em coordenada matricial.
- * @param x		Abscissa que será escrita (Referência).
- * @param y		Ordenada que será escrita (Referência).
- */
-void matricial_para_cartesiana(const struct Mapa* mapa, int i, int j, int* x, int* y);
+  * Desenha o barco na janela win.
+  * @param graficos		Graficos.
+  * @param barco		Barco.
+  */
+void desenha_barco_janela(struct Win* win, const struct Graficos* graficos, const struct Barco* barco);
 
-/**
- * Converte coordenadas matriciais para cartesianas.
- * param mapa		As dimensões do mapa são necessárias.
- * @param i		Linha que será escrita (Referência).
- * @param j		Coluna que será escrita (Referência).
- * @param x		Abscissa.
- * @param y		Ordenada.
- */
-void cartesiana_para_matricial(const struct Mapa* mapa, int* i, int* j, int x, int y);
 
 /**
  * Desenha o mapa com o barco numa janela.
  * @param mapa		Mapa alocado dinamicamente.
- * @param barco		Barco
+ * @param graficos	Graficos.
+ * @param barco		Barco.
  */
-void desenha_mapa_tela(struct Win* win, const struct Mapa* mapa, const struct Barco* barco);
+void desenha_mapa_janela(struct Win* win, struct Graficos* graficos, const struct Mapa* mapa, const struct Barco* barco);
+
+/**
+  * Desenha uma mensagem no canto superior esquerdo da janela.
+  * @param win		Janela.
+  * @param msg		Mensagem.
+  */
+void desenha_mensagem_janela(struct Win* win, const char* msg);
+
+/**
+  * Aguarda o jogador precionar uma seta.
+  * @param win		Janela.
+  * @return		'e', se Seta-esquerda pressionada. <p>
+  *			'b', se Seta-baixo pressionada. <p>
+  *			'd', se Seta-direita pressionada. <p>
+  */
+char pega_seta_janela(struct Win* win);
+
+
+/**
+  * Destroi a janela apontada por win.
+  * @param win 		Janela.
+  */
+void destroi_janela(struct Win* win);
+
+
+/**
+  * Exibe a janela apontada por win.
+  * @param win 		Janela.
+  */
+void exibe_janela(struct Win* win);
+
+
+/**
+  * Esconde a janela apontada por win.
+  * @param win 		Janela.
+  */
+void esconde_janela(struct Win* win);
 
 #endif

@@ -5,6 +5,7 @@
 
 #include "barco.h"
 #include "mapa.h"
+#include "graficos.h"
 #include <stdio.h>
 
 /**
@@ -21,14 +22,24 @@ static int p_valida(char c)
 	return 0;
 }
 
-int rema_barco(pMapa mapa, pBarco barco)
+int rema_barco(struct Win* win, pMapa mapa, pBarco barco)
 {
 	char mov;
 	int naoRemou = 1;
-		
+	
 	printf("Mova o barco\n");
 	printf("(b)baixo  (e)esquerda  (d)direita\n");
-	fscanf(stdin, " %c", &mov);
+
+	if (!win) /*Se não há janela*/
+	{
+		fscanf(stdin, " %c", &mov);
+	}
+	else
+	{
+		desenha_mensagem_janela(win, "Mova o Barco\n(b)baixo  (e)esquerda  (d)direita\n");
+		mov = pega_seta_janela(win);
+		
+	}
 	switch(mov)
 	{
 		case 'b':

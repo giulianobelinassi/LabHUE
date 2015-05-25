@@ -67,8 +67,8 @@ void WLine(WINDOW *win, int x1, int y1, int x2, int y2, int c);
 /** 
   * Desenha um retangulo no ponto (x,y) de altura h e largura w 
   * @param win		Janela.
-  * @param x		Abscissa do canto inferior esquerdo do retângulo.
-  * @param y		Ordenada do canto inferior do retângulo.
+  * @param x		Abscissa do canto superior esquerdo do retângulo.
+  * @param y		Ordenada do canto supeiror do retângulo.
   * @param w		Largura do retângulo.
   * @param h		Altura do retângulo.
   * @param c		Cor.
@@ -78,8 +78,8 @@ void WRect(WINDOW *win, int x, int y, int w, int h, int c);
 /** 
   * Desenha um retangulo no ponto (x,y) de altura h e largura w e preenche-o com a cor c.
   * @param win		Janela.
-  * @param x		Abscissa do canto inferior esquerdo do retângulo.
-  * @param y		Ordenada do canto inferior esquerdo do retângulo.
+  * @param x		Abscissa do canto superior esquerdo do retângulo.
+  * @param y		Ordenada do canto superior esquerdo do retângulo.
   * @param w		Largura do retângulo.
   * @param h		Altura do retângulo.
   * @param c		Cor.
@@ -111,8 +111,8 @@ void WArc(WINDOW *win, int x, int y, int a1, int a2, int w, int h, int c);
   *   WFillArc(win, 100,100, 0, 90*64, 20, 20, 3);
   *
   * @param win		Janela.
-  * @param x		Abscissa do canto inferior esquerdo do retângulo que envolve a elipse.
-  * @param y		Ordenada do canto inferior esquerdo do retângulo que envolve a elipse.
+  * @param x		Abscissa do canto superior esquerdo do retângulo que envolve a elipse.
+  * @param y		Ordenada do canto superior esquerdo do retângulo que envolve a elipse.
   * @param a1		Ângulo inferior.
   * @param a2		Ângulo superior.
   * @param w		Largura do retângulo.
@@ -151,12 +151,12 @@ void FreePic(PIC pic);
   * o pedaco (retangulo) de pic2  a ser usado.
   * @param pic1		Picture a ser escrito.
   * @param pic2		Picture a ser copiado.
-  * @param x0		Abscissa do canto inferior esquerdo do retângulo de pic2.
-  * @param y0		Ordenada do canto inferior esquerdo do retângulo de pic2.
+  * @param x0		Abscissa do canto superior esquerdo do retângulo de pic2.
+  * @param y0		Ordenada do canto superior esquerdo do retângulo de pic2.
   * @param w		Largura de pic2.
   * @param h		Altura de pic2.
-  * @param x		Abscissa do canto inferior esquerdo da posição de pic1
-  * @param y		Ordenada do canto inferior esquerdo da posição de pic2
+  * @param x		Abscissa do canto superior esquerdo da posição de pic1
+  * @param y		Ordenada do canto superior esquerdo da posição de pic2
   */
 void PutPic(PIC pic1, PIC pic2, int x0, int y0, int w, int h, int x, int y);
 

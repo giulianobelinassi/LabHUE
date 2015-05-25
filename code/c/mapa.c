@@ -182,10 +182,11 @@ void escreva_mapa_tela(const Mapa_t* mapa)
 			while ((margemj/=10) != 0) /* Ajusta a saída para melhor se encaixar com o número*/
 				putc(' ', stdout);
 			
-			if (c == 'T' || c == 'B' || c == '=' || c == '*' || c == '+' || c == '!') 
+			if (c == 'T' || c == 'B' || c == '=' || c == '*' || c == '+' || c == '!')
 				fprintf(stdout, "%c ", c);
 			else
 				fprintf(stdout, "- ");
+			
 		}
 		putc('\n', stdout);
 	}

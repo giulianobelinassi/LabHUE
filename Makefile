@@ -17,8 +17,9 @@ DOC_DIR=doc/
 INCLUDE=-I$(H_DIR)
 BIN_DIR=bin/
 MAPS_DIR=res/mapas/
+GRAPHICS_DIR=res/graficos/
 DESTMAPS_DIR=$(addprefix $(BIN_DIR), mapas)
-
+DESTGRAPH_DIR=$(addprefix $(BIN_DIR), graficos)
 #Arquivos-fonte
 SOURCES=mapa.c barco.c eventos.c main.c xwc.c graficos.c
 LOGFILE=saida.txt
@@ -31,7 +32,7 @@ EXECUTABLE=fuganaval
 DIROBJ=$(addprefix $(O_DIR), $(OBJECTS))
 
 #Cria tudo
-all: $(OBJECTS) bin maps
+all: $(OBJECTS) bin maps graph
 
 #Cria documentação. Note a dependência do Doxygen.
 doc: $(DOXYFILE)
@@ -53,10 +54,14 @@ maps:
 	$(MKDIR) $(MKFLAGS) $(DESTMAPS_DIR)
 	$(COPY) $(MAPS_DIR)* $(DESTMAPS_DIR)
 
+graph:
+	$(MKDIR) $(MKFLAGS) $(DESTGRAPH_DIR)
+	$(COPY) $(GRAPHICS_DIR)* $(DESTGRAPH_DIR)
+
 #Limpa
 clean:
 	$(DEL) $(DELFLAGS) $(DIROBJ) $(BIN_DIR)$(EXECUTABLE) $(BIN_DIR)$(LOGFILE)
-	$(DELTREE) $(DELFLAGS) $(DESTMAPS_DIR)
+	$(DELTREE) $(DELFLAGS) $(DESTMAPS_DIR) $(DESTGRAPH_DIR)
 
 clean_doc:
 	$(DELTREE) $(DELFLAGS) $(DOC_DIR)html
