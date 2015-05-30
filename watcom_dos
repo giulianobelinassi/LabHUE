@@ -1,0 +1,57 @@
+# Use o Watcom Compiler e crie binários para MS-DOS
+
+INCLUDE=$(WATCOM)/h
+
+#Flags do compilador, linkeditor, e utilitários
+CC=wcc
+LD=wcl
+CFLAGS=-0 -oh -ol+ -ot -bc -zA -zq -wcd=124 -dNO_GUI
+LDFLAGS=-bt=dos -zq -0
+MKDIR=mkdir
+MKFLAGS=-p
+DEL=rm
+DELTREE=rm -r
+DELFLAGS=-f
+COPY=cp
+
+#Variáveis de controle de ambiente
+C_DIR=code/c/
+H_DIR=code/h/
+O_DIR=code/o/dos/
+DOC_DIR=doc/
+INCL=-i=$(H_DIR):
+BIN_DIR=bin/DOS/
+MAPS_DIR=res/mapas/
+DESTMAPS_DIR=$(addprefix $(BIN_DIR), mapas)
+#Arquivos-fonte
+SOURCES=mapa.c barco.c eventos.c main.c
+LOGFILE=saida.txt
+OBJECTS=$(SOURCES:.c=.o)
+EXECUTABLE=FUGA.EXE
+
+#Variável auxiliar
+DIROBJ=$(addprefix $(O_DIR), $(OBJECTS))
+
+#Cria tudo
+all: $(OBJECTS) bin maps
+
+#Cria arquivo objeto.
+%o: $(C_DIR)%c
+	$(MKDIR) $(MKFLAGS) $(O_DIR)
+	$(CC) $(CFLAGS) $(INCL) $< -fo=$(O_DIR)$@
+
+#Cria binário
+bin: $(OBJECTS)
+	$(MKDIR) $(MKFLAGS) $(BIN_DIR)
+	$(LD) -fe=$(BIN_DIR)$(EXECUTABLE) $(LDFLAGS) $(DIROBJ)
+	
+maps:
+	$(MKDIR) $(MKFLAGS) $(DESTMAPS_DIR)
+	$(COPY) $(MAPS_DIR)* $(DESTMAPS_DIR)
+
+
+#Limpa
+clean:
+	$(DEL) $(DELFLAGS) $(DIROBJ) $(BIN_DIR)$(EXECUTABLE) $(BIN_DIR)$(LOGFILE)
+	$(DELTREE) $(DELFLAGS) $(DESTMAPS_DIR) $(DESTGRAPH_DIR)
+

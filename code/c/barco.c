@@ -5,8 +5,11 @@
 
 #include "barco.h"
 #include "mapa.h"
-#include "graficos.h"
 #include <stdio.h>
+
+#ifndef NO_GUI 
+#include "graficos.h"
+#endif
 
 /**
   * Verifica se a posição é válida. Ou seja, se não há uma embarcação
@@ -30,16 +33,13 @@ int rema_barco(struct Win* win, pMapa mapa, pBarco barco)
 	printf("Mova o barco\n");
 	printf("(b)baixo  (e)esquerda  (d)direita\n");
 
-	if (!win) /*Se não há janela*/
-	{
-		fscanf(stdin, " %c", &mov);
-	}
-	else
-	{
-		desenha_mensagem_janela(win, "Mova o Barco\n(b)baixo  (e)esquerda  (d)direita\n");
-		mov = pega_seta_janela(win);
-		
-	}
+	#ifndef NO_GUI
+	desenha_mensagem_janela(win, "Mova o Barco usando as setas\n");
+	mov = pega_seta_janela(win);
+	#else
+	fscanf(stdin, " %c", &mov);
+	#endif
+
 	switch(mov)
 	{
 		case 'b':

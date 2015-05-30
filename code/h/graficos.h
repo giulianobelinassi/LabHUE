@@ -5,6 +5,7 @@
 #ifndef GRAFICOS_H
 #define GRAFICOS_H
 
+#ifndef NO_GUI /** Compilamos sem interface gráfica.*/
 
 /*Dependências*/
 struct Mapa;
@@ -79,47 +80,49 @@ void desenha_barco_janela(struct Win* win, const struct Graficos* graficos, cons
 
 /**
  * Desenha o mapa com o barco numa janela.
- * @param mapa		Mapa alocado dinamicamente.
- * @param graficos	Graficos.
- * @param barco		Barco.
+ * @param mapa			Mapa alocado dinamicamente.
+ * @param graficos		Graficos.
+ * @param barco			Barco.
  */
 void desenha_mapa_janela(struct Win* win, struct Graficos* graficos, const struct Mapa* mapa, const struct Barco* barco);
 
 /**
   * Desenha uma mensagem no canto superior esquerdo da janela.
-  * @param win		Janela.
-  * @param msg		Mensagem.
+  * @param win			Janela.
+  * @param msg			Mensagem.
   */
 void desenha_mensagem_janela(struct Win* win, const char* msg);
 
 /**
   * Aguarda o jogador precionar uma seta.
-  * @param win		Janela.
-  * @return		'e', se Seta-esquerda pressionada. <p>
-  *			'b', se Seta-baixo pressionada. <p>
-  *			'd', se Seta-direita pressionada. <p>
+  * @param win			Janela.
+  * @return			'e', se Seta-esquerda pressionada. <p>
+  *				'b', se Seta-baixo pressionada. <p>
+  *		    		'd', se Seta-direita pressionada. <p>
+  *				'=', se ENTER pressionado.
   */
 char pega_seta_janela(struct Win* win);
 
 
 /**
   * Destroi a janela apontada por win.
-  * @param win 		Janela.
+  * @param win 			Janela.
   */
 void destroi_janela(struct Win* win);
 
 
 /**
   * Exibe a janela apontada por win.
-  * @param win 		Janela.
+  * @param win 			Janela.
   */
 void exibe_janela(struct Win* win);
 
 
 /**
   * Esconde a janela apontada por win.
-  * @param win 		Janela.
+  * @param win	 		Janela.
   */
 void esconde_janela(struct Win* win);
 
+#endif
 #endif

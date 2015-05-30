@@ -4,10 +4,13 @@
 #include "mapa.h"
 #include "barco.h"
 #include "eventos.h"
-#include "graficos.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+#ifndef NO_GUI
+#include "graficos.h"
+#endif
 
 #define BECO_SEM_SAIDA 3 /**< Quantidade de jogadas sem o barco se mover até que o jogo pare.*/
 
@@ -37,6 +40,10 @@ int main(int argc, char* argv[])
 	struct Win* win;
 	struct Graficos* graficos;
 	
+	#ifdef NO_GUI
+	win      = NULL;
+	graficos = NULL;
+	#endif
 	
 	srand(time(NULL));
 	
@@ -64,8 +71,11 @@ int main(int argc, char* argv[])
 	
 	posiciona_barco(mapa, &barco);
 	escreva_mapa_tela(mapa);
+	
+	#ifndef NO_GUI
 	win = inicializa_janela(&graficos, mapa);
 	exibe_janela(win);
+	#endif
 	
 	do
 	{
@@ -74,7 +84,10 @@ int main(int argc, char* argv[])
 		
 		escreva_mapa_tela(mapa);
 		escreva_mapa_arquivo(mapa, file);
+		
+		#ifndef NO_GUI
 		desenha_mapa_janela(win, graficos, mapa, &barco);
+		#endif
 		
 		travado = (travado + naoRemou)*naoRemou; /* Caso ele tenha remado, naoRemou é 0, anulando a soma.**/
 		
@@ -85,25 +98,37 @@ int main(int argc, char* argv[])
 	{              
 		fputs(ATINGIDO, stdout);
 		fputs(ATINGIDO,   file);
+		#ifndef NO_GUI
 		desenha_mensagem_janela(win, ATINGIDO);
+		#endif
 	}
 	else if (travado >= BECO_SEM_SAIDA)
 	{
 		fputs(PRESO, stdout);
 		fputs(PRESO,   file);
+		#ifndef NO_GUI
 		desenha_mensagem_janela(win, PRESO);
+		#endif
 	}
 	else
 	{
 		fputs(GANHOU, stdout);
 		fputs(GANHOU,   file);
+		#ifndef NO_GUI
 		desenha_mensagem_janela(win, GANHOU);
+		#endif
 	}
 	
 	escreva_mapa_arquivo(mapa, file);
-	scanf(" %d ", &naoAtingido);
+    
+	#ifndef NO_GUI
+	while (pega_seta_janela(win) == '\0')
+		; /*Aguarde o usuário pressionar uma tecla válida na janela.*/
+        
+        destroi_janela(win);
+	#endif
+	
 	fclose(file);
-	destroi_janela(win);
 	destroi_mapa(&mapa);
 	
 	

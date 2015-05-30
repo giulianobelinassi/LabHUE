@@ -1,3 +1,5 @@
+#ifndef NO_GUI
+
 #include <stdlib.h>
 #include <string.h>
 #include <X11/XKBlib.h>
@@ -226,7 +228,6 @@ Display *GetDisplay()
   return display;
 }
 
-#ifndef NOXPM
 /* Arquivos  - Xpm */
 PIC ReadPic(WINDOW *w, char *fname, MASK m)
 {
@@ -290,8 +291,6 @@ PIC MountPic(WINDOW *w, char **data, MASK m)
   return p;
 }
 
-#endif
-
 void InitKBD(WINDOW *w)
 {
   /*  XSelectInput (display, w->ptr.window, KeyPressMask|KeyReleaseMask);*/
@@ -324,3 +323,5 @@ KeySym WLastKeySym()
 {
   return key;
 }
+
+#endif

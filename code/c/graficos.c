@@ -3,8 +3,9 @@
 #include "mapa.h"
 #include "barco.h"
 
-
 #include "xwc.h"
+
+#ifndef NO_GUI /** Compilamos sem interface gráfica.*/
 
 Graficos_t* carrega_graficos(WINDOW* win)
 {
@@ -121,7 +122,7 @@ void desenha_barco_janela(WINDOW* win, const Graficos_t* graficos, const Barco_t
 
 void desenha_mensagem_janela(WINDOW* win, const char* msg)
 {
-	WPrint(win, 0, 0, (char*) msg);
+	WPrint(win, 0, 30, (char*) msg);
 }
 
 void desenha_mapa_janela(WINDOW* win, Graficos_t* graficos, const Mapa_t* mapa, const Barco_t* barco)
@@ -160,14 +161,14 @@ char pega_seta_janela(WINDOW* win)
 	InitKBD(win);
 	key = WGetKey(win);
 	
-	printf("HUE %d", key);
-	
 	if (key == 113)
 		return 'e';
 	if (key == 116)
 		return 'b';
 	if (key == 114)
 		return 'd';
+	if (key == 36)
+		return '='; /*Enter.*/
 	
 	return '\0';
 }
@@ -186,3 +187,5 @@ void esconde_janela(WINDOW* win)
 {
 	WHide(win);
 }
+
+#endif

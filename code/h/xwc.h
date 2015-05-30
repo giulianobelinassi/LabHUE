@@ -5,6 +5,8 @@
   *
   */
 
+#ifndef NO_GUI
+
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/xpm.h>
@@ -281,3 +283,5 @@ KeyCode WGetKey(WINDOW *w);
 
 /** Retorna o KeySym da última tecla lida */
 KeySym WLastKeySym();
+
+#endif
