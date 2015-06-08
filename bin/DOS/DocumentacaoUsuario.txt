@@ -1,0 +1,57 @@
+BATALHA NAVAL - Como jogar
+
+Seja bem-vindo, marinheiro! 
+Sua tarefa é atravessar uma determinada região do Oceano Atlântico, onde está acontecendo uma batalha naval.
+Na batalha, você encontrará submarinos, destroyers, cruzadores, porta-aviões e hidro-aviões.
+Mas não tema: estará no controle de um destemido barco a remo.
+
+Para rodar o jogo, execute o fuganaval (FUGA.EXE caso MS-DOS, fuganaval.exe caso Windows).
+A região onde a guerra está ocorrendo aparecerá na tela.
+Para iniciar a batalha, você deve entrar com o mapa de sua preferência na linha de comando 
+      fuganaval caminho_para_mapa.dat caminho_texto_saida.txt
+
+(as opções se encontram em /mapas). Entre com:
+ - nome do mapa que será usado para a batalha;
+ - nome do arquivo onde as mensagens serão escritas (opcional).
+
+Ex: Para jogar com o mapa1:
+      fuganaval mapas/mapa1.dat
+
+O mapa é carregado na tela e a batalha começa.
+
+(1) Posicione seu barco em uma das colunas da primeira linha, digitando o número correspondente
+	no teclado;
+(2) Reme seu barco: Caso esteja usando a interface gráfica, use as setas, caso contrário, escolha
+	(b)baixo  (e)esquerda  (d)direita - entre com a letra correspondente e aperte ENTER;
+(3) Proteja-se dos tiros! As embarcações afetadas por eles são destruídas instantaneamente.
+	Você receberá as informações a respeito dos estragos, não se preocupe;
+(4) Se seu barco continuar firme e forte, repita os procedimentos anteriores.
+
+O jogo acaba por um desses motivos:
+
+ - seu barco conseguiu atravessar a zona de batalha sem arranhão algum - VOCÊ VENCEU!;
+ - seu barco afundou :( ;
+ - seu barco ficou num beco sem saída por três rodadas consecutivas e você precisou ser socorrido,
+   ou seja, perdeu a batalha.
+
+
+Que as forças dos ventos e dos mares estejam com você!
+
+
+Requisitos Mínimos:
+	Para MS-DOS:
+		MS-DOS versão 5.0 ou superior.
+		Intel 8086 16-bits ou superior.
+		100KB de espaço livre.
+	
+	Para Windows:
+		Microsoft Windows NT 4.0 ou superior (Windows 9x, usem a versão de DOS).
+		Intel 386.
+		100KB de espaço livre.
+		
+	Para Linux:
+		Linux com X-Window instalado.
+		Intel 386.
+		100KB de espaço livre.
+		
+Note que apenas a versão de Linux há interface gráfica, e ela é necessária para execução do jogo. 
