@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['sorteia',['SORTEIA',['../eventos_8h.html#a062db28171aea0e06d43bb752cf8e953',1,'eventos.h']]]
+  ['dim_5fx',['DIM_X',['../graficos_8h.html#af6ec22f9c3bd91bd252e29aebb461b11',1,'graficos.h']]],
+  ['dim_5fy',['DIM_Y',['../graficos_8h.html#a5fa9a687139f39c5033eb566a9e7b6e1',1,'graficos.h']]]
 ];

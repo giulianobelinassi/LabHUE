@@ -94,35 +94,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef DOXYGEN_SHOULD_SKIP_THIS</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">struct </span><a class="code" href="structMapa.html">Mapa</a>; <span class="comment">/* Dependencia*/</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structBarco.html">   16</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structBarco.html">Barco</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structBarco.html#a5acd39efb793a31efd6c21ba9790a910">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structBarco.html#a5acd39efb793a31efd6c21ba9790a910">linha</a>;  </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structBarco.html#a3a34d5834d17d48496ce8f4e5dac6216">   19</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structBarco.html#a3a34d5834d17d48496ce8f4e5dac6216">coluna</a>; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/* Notações alternativas para evitar possíveis verborragias.*/</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="barco_8h.html#a4312aa95d0bc7875479faf0a668d7650">   23</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structBarco.html">Barco</a> <a class="code" href="structBarco.html">Barco_t</a>,   </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                     *<a class="code" href="barco_8h.html#a4312aa95d0bc7875479faf0a668d7650">pBarco_t</a>, </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                     *<a class="code" href="barco_8h.html#a5973dc611a94d582ac926c829994d02a">pBarco</a>;   </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">int</span> <a class="code" href="barco_8h.html#a93ce2f7100b995aed8a99c2efcfbc159">rema_barco</a>(<span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, <span class="keyword">struct</span> <a class="code" href="structBarco.html">Barco</a>* barco);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> <a class="code" href="barco_8h.html#a418b8cc3294b8d48c2afe790c9d41a9e">posiciona_barco</a>(<span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, <span class="keyword">struct</span> <a class="code" href="structBarco.html">Barco</a>* barco);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="barco_8h_html_a4312aa95d0bc7875479faf0a668d7650"><div class="ttname"><a href="barco_8h.html#a4312aa95d0bc7875479faf0a668d7650">pBarco_t</a></div><div class="ttdeci">struct Barco * pBarco_t</div><div class="ttdef"><b>Definition:</b> barco.h:23</div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">struct </span><a class="code" href="structWin.html">Win</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structBarco.html">   17</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structBarco.html">Barco</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structBarco.html#a5acd39efb793a31efd6c21ba9790a910">   19</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structBarco.html#a5acd39efb793a31efd6c21ba9790a910">linha</a>;  </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structBarco.html#a3a34d5834d17d48496ce8f4e5dac6216">   20</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structBarco.html#a3a34d5834d17d48496ce8f4e5dac6216">coluna</a>; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structBarco.html#a682c01efed2c9624b4a65a2584deb83f">   21</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="structBarco.html#a682c01efed2c9624b4a65a2584deb83f">bussola</a>; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/* Notações alternativas para evitar possíveis verborragias.*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="barco_8h.html#a4312aa95d0bc7875479faf0a668d7650">   25</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structBarco.html">Barco</a> <a class="code" href="structBarco.html">Barco_t</a>,   </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                     *<a class="code" href="barco_8h.html#a4312aa95d0bc7875479faf0a668d7650">pBarco_t</a>, </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                     *<a class="code" href="barco_8h.html#a5973dc611a94d582ac926c829994d02a">pBarco</a>;   </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">int</span> <a class="code" href="barco_8h.html#a5071582811fc4936d09452449c23ffaa">rema_barco</a>(<span class="keyword">struct</span> <a class="code" href="structWin.html">Win</a>* win, <span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, <span class="keyword">struct</span> <a class="code" href="structBarco.html">Barco</a>* barco);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> <a class="code" href="barco_8h.html#a418b8cc3294b8d48c2afe790c9d41a9e">posiciona_barco</a>(<span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, <span class="keyword">struct</span> <a class="code" href="structBarco.html">Barco</a>* barco);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="barco_8h_html_a4312aa95d0bc7875479faf0a668d7650"><div class="ttname"><a href="barco_8h.html#a4312aa95d0bc7875479faf0a668d7650">pBarco_t</a></div><div class="ttdeci">struct Barco * pBarco_t</div><div class="ttdef"><b>Definition:</b> barco.h:25</div></div>
 <div class="ttc" id="structMapa_html"><div class="ttname"><a href="structMapa.html">Mapa</a></div><div class="ttdef"><b>Definition:</b> mapa.h:15</div></div>
-<div class="ttc" id="structBarco_html_a5acd39efb793a31efd6c21ba9790a910"><div class="ttname"><a href="structBarco.html#a5acd39efb793a31efd6c21ba9790a910">Barco::linha</a></div><div class="ttdeci">int linha</div><div class="ttdef"><b>Definition:</b> barco.h:18</div></div>
-<div class="ttc" id="barco_8h_html_a93ce2f7100b995aed8a99c2efcfbc159"><div class="ttname"><a href="barco_8h.html#a93ce2f7100b995aed8a99c2efcfbc159">rema_barco</a></div><div class="ttdeci">int rema_barco(struct Mapa *mapa, struct Barco *barco)</div></div>
-<div class="ttc" id="barco_8h_html_a5973dc611a94d582ac926c829994d02a"><div class="ttname"><a href="barco_8h.html#a5973dc611a94d582ac926c829994d02a">pBarco</a></div><div class="ttdeci">struct Barco * pBarco</div><div class="ttdef"><b>Definition:</b> barco.h:23</div></div>
-<div class="ttc" id="structBarco_html_a3a34d5834d17d48496ce8f4e5dac6216"><div class="ttname"><a href="structBarco.html#a3a34d5834d17d48496ce8f4e5dac6216">Barco::coluna</a></div><div class="ttdeci">int coluna</div><div class="ttdef"><b>Definition:</b> barco.h:19</div></div>
-<div class="ttc" id="structBarco_html"><div class="ttname"><a href="structBarco.html">Barco</a></div><div class="ttdef"><b>Definition:</b> barco.h:16</div></div>
+<div class="ttc" id="structBarco_html_a5acd39efb793a31efd6c21ba9790a910"><div class="ttname"><a href="structBarco.html#a5acd39efb793a31efd6c21ba9790a910">Barco::linha</a></div><div class="ttdeci">int linha</div><div class="ttdef"><b>Definition:</b> barco.h:19</div></div>
+<div class="ttc" id="structWin_html"><div class="ttname"><a href="structWin.html">Win</a></div><div class="ttdef"><b>Definition:</b> xwc.h:17</div></div>
+<div class="ttc" id="barco_8h_html_a5973dc611a94d582ac926c829994d02a"><div class="ttname"><a href="barco_8h.html#a5973dc611a94d582ac926c829994d02a">pBarco</a></div><div class="ttdeci">struct Barco * pBarco</div><div class="ttdef"><b>Definition:</b> barco.h:25</div></div>
+<div class="ttc" id="structBarco_html_a3a34d5834d17d48496ce8f4e5dac6216"><div class="ttname"><a href="structBarco.html#a3a34d5834d17d48496ce8f4e5dac6216">Barco::coluna</a></div><div class="ttdeci">int coluna</div><div class="ttdef"><b>Definition:</b> barco.h:20</div></div>
+<div class="ttc" id="structBarco_html"><div class="ttname"><a href="structBarco.html">Barco</a></div><div class="ttdef"><b>Definition:</b> barco.h:17</div></div>
 <div class="ttc" id="barco_8h_html_a418b8cc3294b8d48c2afe790c9d41a9e"><div class="ttname"><a href="barco_8h.html#a418b8cc3294b8d48c2afe790c9d41a9e">posiciona_barco</a></div><div class="ttdeci">void posiciona_barco(struct Mapa *mapa, struct Barco *barco)</div></div>
+<div class="ttc" id="structBarco_html_a682c01efed2c9624b4a65a2584deb83f"><div class="ttname"><a href="structBarco.html#a682c01efed2c9624b4a65a2584deb83f">Barco::bussola</a></div><div class="ttdeci">char bussola</div><div class="ttdef"><b>Definition:</b> barco.h:21</div></div>
+<div class="ttc" id="barco_8h_html_a5071582811fc4936d09452449c23ffaa"><div class="ttname"><a href="barco_8h.html#a5071582811fc4936d09452449c23ffaa">rema_barco</a></div><div class="ttdeci">int rema_barco(struct Win *win, struct Mapa *mapa, struct Barco *barco)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 15 de Maio de 2015 21:36:19 para Fuga Naval por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 8 de Junho de 2015 18:52:27 para Fuga Naval por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

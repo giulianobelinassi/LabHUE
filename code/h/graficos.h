@@ -14,12 +14,15 @@ struct Win; /* Alguma biblioteca compatível com xwc do Gubitoso.*/
 /**/
 
 /** Largura em pixels de uma cédula. Note que a contagem inicia-se de zero.*/
-#define DIM_X    47
+#define DIM_X    47 
+
 /** Altura em pixels de uma cédula*/
-#define DIM_Y    47
+#define DIM_Y    47 
 
 /** Quantidade de orientações do barco. Note que a contagem inicia-se de zero.*/
-#define FRAMES_BARCO 3
+#define FRAMES_BARCO 3 
+
+/** Possíveis orientações do Barco.*/
 enum {BARCO_E, BARCO_B, BARCO_D} FBARCO;
 
 /** Struct guardando todos os possíveis gráficos (Conjunto de buffers).*/
@@ -39,8 +42,8 @@ typedef struct Graficos *pGraficos;
 
 /**
   * Carrega as imagens em .xpm para uma estrutura com os buffers.
-  * @param graficos		Conjunto de buffers passado por referência;
-  * @return			Graficos.
+  * @param win			Janela.
+  * @return			Buffer com gráficos.
   */
 struct Graficos* carrega_graficos(struct Win* win);
 
@@ -51,7 +54,7 @@ struct Graficos* carrega_graficos(struct Win* win);
 void destroi_graficos(struct Graficos** graficos);
 
 /** Carrega todos os recursos, cria uma janela com as dimensões do mapa,
-  * preenche-o com água, e retorna a janela.
+  * preenche-o com o conteúdo da matriz, e retorna a janela.
   * @param graficos		Referência a um conjunto de buffers gráficos.
   				Note que ele será criado dentro da função,
   				então temos uma passagem por referência.
@@ -72,6 +75,7 @@ void desenha_cedula_janela(struct Win* win, const struct Graficos* graficos, con
 
 /**
   * Desenha o barco na janela win.
+  * @param win			Janela.
   * @param graficos		Graficos.
   * @param barco		Barco.
   */

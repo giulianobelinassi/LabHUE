@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['pbarco',['pBarco',['../barco_8h.html#a5973dc611a94d582ac926c829994d02a',1,'barco.h']]],
-  ['pbarco_5ft',['pBarco_t',['../barco_8h.html#a4312aa95d0bc7875479faf0a668d7650',1,'barco.h']]],
-  ['pmapa',['pMapa',['../mapa_8h.html#acd7b3883a1c49d833c5d078c970c3aea',1,'mapa.h']]],
-  ['pmapa_5ft',['pMapa_t',['../mapa_8h.html#a5c7dee9ed2e2bd2e8552ceb060015f3c',1,'mapa.h']]],
-  ['posiciona_5fbarco',['posiciona_barco',['../barco_8h.html#a418b8cc3294b8d48c2afe790c9d41a9e',1,'barco.h']]]
+  ['newmask',['NewMask',['../xwc_8h.html#ae16789184f5c90444e6522e438d64c21',1,'xwc.c']]],
+  ['newpic',['NewPic',['../xwc_8h.html#aab47c70a14d0c85f49e42312ab0a6ad3',1,'xwc.c']]],
+  ['novo_5fmapa',['novo_mapa',['../mapa_8h.html#a7971967ec1b2a7fa4715e38c5d5b50f0',1,'mapa.c']]]
 ];

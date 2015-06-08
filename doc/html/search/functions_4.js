@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ganhou_5fjogo',['ganhou_jogo',['../eventos_8h.html#ac780f8ec0782c914c6a72fa389028d9e',1,'eventos.h']]]
+  ['freepic',['FreePic',['../xwc_8h.html#a66f9cfd7b4f0ed6cc8e7edecae06f6f2',1,'xwc.c']]]
 ];

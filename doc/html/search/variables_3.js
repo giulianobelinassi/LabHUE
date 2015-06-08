@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['matriz',['matriz',['../structMapa.html#a48671b56d1a91a65a1068e0884e398d0',1,'Mapa']]]
+  ['destroco',['destroco',['../structGraficos.html#a542bc2092c5c142161d81641201abcbf',1,'Graficos']]]
 ];

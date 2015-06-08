@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['leia_5fmapa',['leia_mapa',['../mapa_8h.html#a6cfa5a68af55224c62b74b87f95ca4ac',1,'mapa.c']]]
+  ['identifica_5falvo_5fatingido',['identifica_alvo_atingido',['../eventos_8h.html#a475e18165f8e10498809fa667dc8b18d',1,'eventos.c']]],
+  ['inicializa_5fjanela',['inicializa_janela',['../graficos_8h.html#a5c6cbb6cb1de05c53deebd81d93493d2',1,'graficos.h']]],
+  ['initgraph',['InitGraph',['../xwc_8h.html#a0a22bcdf5bf04b3acf40e8f68e05fbab',1,'xwc.c']]],
+  ['initkbd',['InitKBD',['../xwc_8h.html#a2f84ed416e1901addb2bf824635bb327',1,'xwc.c']]]
 ];

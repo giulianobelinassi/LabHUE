@@ -30,15 +30,14 @@ EXECUTABLE=fuganaval
 
 #Variável auxiliar
 DIROBJ=$(addprefix $(O_DIR), $(OBJECTS))
+.PHONY: doc
 
 #Cria tudo
 all: $(OBJECTS) bin maps graph
 
 #Cria documentação. Note a dependência do Doxygen.
 doc: $(DOXYFILE)
-	 doxygen -w $(DOXYSTUFF) $(DOXYFILE)
 	 doxygen $(DOXYFILE)
-	 $(DEL) $(DELFLAGS) $(DOXYSTUFF)
 
 #Cria arquivo objeto.
 %o: $(C_DIR)%c

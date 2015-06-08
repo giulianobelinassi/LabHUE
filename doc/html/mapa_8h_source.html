@@ -102,21 +102,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/* Notações alternativas para evitar possíveis verborragias.*/</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="mapa_8h.html#a5c7dee9ed2e2bd2e8552ceb060015f3c">   24</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structMapa.html">Mapa</a> <a class="code" href="structMapa.html">Mapa_t</a>,   </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    *<a class="code" href="mapa_8h.html#a5c7dee9ed2e2bd2e8552ceb060015f3c">pMapa_t</a>, </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    *<a class="code" href="mapa_8h.html#acd7b3883a1c49d833c5d078c970c3aea">pMapa</a>;   </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">struct </span><a class="code" href="structMapa.html">Mapa</a>* <a class="code" href="mapa_8h.html#a7971967ec1b2a7fa4715e38c5d5b50f0">novo_mapa</a>(<span class="keywordtype">int</span> M, <span class="keywordtype">int</span> N);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mapa_8h.html#adafc7ca57c3c18c33469da2d80d865b9">destroi_mapa</a>(<span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>** mapa);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapa_8h.html#a6cfa5a68af55224c62b74b87f95ca4ac">leia_mapa</a>(<span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>** mapa, <span class="keyword">const</span> <span class="keywordtype">char</span>* arquivo);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mapa_8h.html#a460f3c494ef27f64d34b2e3fae6af0e4">escreva_mapa_tela</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapa_8h.html#a72d683d31d027ebf4a8c400e89dfca03">escreva_mapa_arquivo</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, FILE* arquivo);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="mapa_8h.html#a5c7dee9ed2e2bd2e8552ceb060015f3c">   25</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structMapa.html">Mapa</a> <a class="code" href="structMapa.html">Mapa_t</a>,   </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    *<a class="code" href="mapa_8h.html#a5c7dee9ed2e2bd2e8552ceb060015f3c">pMapa_t</a>, </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    *<a class="code" href="mapa_8h.html#acd7b3883a1c49d833c5d078c970c3aea">pMapa</a>;   </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">struct </span><a class="code" href="structMapa.html">Mapa</a>* <a class="code" href="mapa_8h.html#a7971967ec1b2a7fa4715e38c5d5b50f0">novo_mapa</a>(<span class="keywordtype">int</span> M, <span class="keywordtype">int</span> N);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mapa_8h.html#adafc7ca57c3c18c33469da2d80d865b9">destroi_mapa</a>(<span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>** mapa);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapa_8h.html#a6cfa5a68af55224c62b74b87f95ca4ac">leia_mapa</a>(<span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>** mapa, <span class="keyword">const</span> <span class="keywordtype">char</span>* arquivo);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mapa_8h.html#a460f3c494ef27f64d34b2e3fae6af0e4">escreva_mapa_tela</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapa_8h.html#a72d683d31d027ebf4a8c400e89dfca03">escreva_mapa_arquivo</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code" href="structMapa.html">Mapa</a>* mapa, FILE* arquivo);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="ttc" id="structMapa_html"><div class="ttname"><a href="structMapa.html">Mapa</a></div><div class="ttdef"><b>Definition:</b> mapa.h:15</div></div>
 <div class="ttc" id="mapa_8h_html_a6cfa5a68af55224c62b74b87f95ca4ac"><div class="ttname"><a href="mapa_8h.html#a6cfa5a68af55224c62b74b87f95ca4ac">leia_mapa</a></div><div class="ttdeci">int leia_mapa(struct Mapa **mapa, const char *arquivo)</div><div class="ttdef"><b>Definition:</b> mapa.c:68</div></div>
 <div class="ttc" id="mapa_8h_html_a7971967ec1b2a7fa4715e38c5d5b50f0"><div class="ttname"><a href="mapa_8h.html#a7971967ec1b2a7fa4715e38c5d5b50f0">novo_mapa</a></div><div class="ttdeci">struct Mapa * novo_mapa(int M, int N)</div><div class="ttdef"><b>Definition:</b> mapa.c:9</div></div>
@@ -124,14 +125,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="ttc" id="mapa_8h_html_a72d683d31d027ebf4a8c400e89dfca03"><div class="ttname"><a href="mapa_8h.html#a72d683d31d027ebf4a8c400e89dfca03">escreva_mapa_arquivo</a></div><div class="ttdeci">int escreva_mapa_arquivo(const struct Mapa *mapa, FILE *arquivo)</div></div>
 <div class="ttc" id="mapa_8h_html_adafc7ca57c3c18c33469da2d80d865b9"><div class="ttname"><a href="mapa_8h.html#adafc7ca57c3c18c33469da2d80d865b9">destroi_mapa</a></div><div class="ttdeci">void destroi_mapa(struct Mapa **mapa)</div><div class="ttdef"><b>Definition:</b> mapa.c:49</div></div>
 <div class="ttc" id="structMapa_html_a34885c4a5559f3d93e05b7c225e19343"><div class="ttname"><a href="structMapa.html#a34885c4a5559f3d93e05b7c225e19343">Mapa::altura</a></div><div class="ttdeci">int altura</div><div class="ttdef"><b>Definition:</b> mapa.h:18</div></div>
-<div class="ttc" id="mapa_8h_html_acd7b3883a1c49d833c5d078c970c3aea"><div class="ttname"><a href="mapa_8h.html#acd7b3883a1c49d833c5d078c970c3aea">pMapa</a></div><div class="ttdeci">struct Mapa * pMapa</div><div class="ttdef"><b>Definition:</b> mapa.h:24</div></div>
+<div class="ttc" id="mapa_8h_html_acd7b3883a1c49d833c5d078c970c3aea"><div class="ttname"><a href="mapa_8h.html#acd7b3883a1c49d833c5d078c970c3aea">pMapa</a></div><div class="ttdeci">struct Mapa * pMapa</div><div class="ttdef"><b>Definition:</b> mapa.h:25</div></div>
 <div class="ttc" id="mapa_8h_html_a460f3c494ef27f64d34b2e3fae6af0e4"><div class="ttname"><a href="mapa_8h.html#a460f3c494ef27f64d34b2e3fae6af0e4">escreva_mapa_tela</a></div><div class="ttdeci">void escreva_mapa_tela(const struct Mapa *mapa)</div></div>
 <div class="ttc" id="structMapa_html_a19fa95f6fab82c61c15026d6d079270a"><div class="ttname"><a href="structMapa.html#a19fa95f6fab82c61c15026d6d079270a">Mapa::largura</a></div><div class="ttdeci">int largura</div><div class="ttdef"><b>Definition:</b> mapa.h:17</div></div>
-<div class="ttc" id="mapa_8h_html_a5c7dee9ed2e2bd2e8552ceb060015f3c"><div class="ttname"><a href="mapa_8h.html#a5c7dee9ed2e2bd2e8552ceb060015f3c">pMapa_t</a></div><div class="ttdeci">struct Mapa * pMapa_t</div><div class="ttdef"><b>Definition:</b> mapa.h:24</div></div>
+<div class="ttc" id="mapa_8h_html_a5c7dee9ed2e2bd2e8552ceb060015f3c"><div class="ttname"><a href="mapa_8h.html#a5c7dee9ed2e2bd2e8552ceb060015f3c">pMapa_t</a></div><div class="ttdeci">struct Mapa * pMapa_t</div><div class="ttdef"><b>Definition:</b> mapa.h:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 15 de Maio de 2015 21:36:19 para Fuga Naval por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 8 de Junho de 2015 18:52:27 para Fuga Naval por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
