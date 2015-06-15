@@ -31,7 +31,7 @@ int rema_barco(struct Win* win, pMapa mapa, pBarco barco)
 	int naoRemou = 1;
 	
 	printf("Mova o barco\n");
-	printf("(b)baixo  (e)esquerda  (d)direita\n");
+	printf("(b)baixo  (e)esquerda  (d)direita (c)cima\n");
 
 	#ifndef NO_GUI
 	desenha_mensagem_janela(win, "Mova o Barco usando as setas\n");
@@ -73,7 +73,18 @@ int rema_barco(struct Win* win, pMapa mapa, pBarco barco)
 				barco->coluna++;
 				naoRemou = 0;
 			}	
-		break;								
+		break;
+		
+		case 'c':
+			barco->bussola = 'c';
+			if(barco->linha - 1 >= 0 && p_valida(mapa->matriz[barco->linha - 1][barco->coluna]))
+			{
+				mapa->matriz[barco->linha][barco->coluna] = 'T';
+				mapa->matriz[barco->linha - 1][barco->coluna] = 'B';
+				barco->linha--;
+				naoRemou = 0;
+			}	
+		break;			
 	}
 
 	return naoRemou;
@@ -92,12 +103,15 @@ void posiciona_barco(pMapa mapa, pBarco barco)
 
 	printf("Escolha uma coluna para posicionar o barco. ");
 	printf("Entre com uma coluna válida: entre 0 e %d\n", (mapa -> largura - 1));
-	fscanf(stdin, " %d", &pos);
 	
-	while(pos < 0 && pos >= mapa->largura && mapa->matriz[0][pos] != '.')
+	while(1)
 	{
+		fscanf(stdin, " %d", &pos);
+
+		if (0 <= pos && pos < mapa->largura && mapa->matriz[0][pos] == '.')		
+			break;
+			
 		printf("Posição inválida! Tente novamente\n");
-		fscanf(stdin, " %d", &pos);	
 	}
 	mapa -> matriz[0][pos] = 'B';
 	barco->linha = 0;

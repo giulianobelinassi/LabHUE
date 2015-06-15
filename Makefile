@@ -1,6 +1,6 @@
 #Flags do compilador, linkeditor, e utilitários
 CC=gcc
-CFLAGS=-Wall -O3 -ansi -c -Wno-unused-result -D NO_GUI
+CFLAGS=-Wall -O3 -ansi -c -Wno-unused-result
 LDFLAGS=-lm -lXpm -lX11
 MKDIR=mkdir
 MKFLAGS=-p

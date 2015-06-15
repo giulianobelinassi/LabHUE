@@ -103,9 +103,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="graficos_8h.html#a5fa9a687139f39c5033eb566a9e7b6e1">   20</a></span>&#160;<span class="preprocessor">#define DIM_Y    47 </span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="graficos_8h.html#add40ed6ad3f2b712cc09022a7390c4b8">   23</a></span>&#160;<span class="preprocessor">#define FRAMES_BARCO 3 </span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="graficos_8h.html#add40ed6ad3f2b712cc09022a7390c4b8">   23</a></span>&#160;<span class="preprocessor">#define FRAMES_BARCO 4 </span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">enum</span> {BARCO_E, BARCO_B, BARCO_D} <a class="code" href="graficos_8h.html#a45218e00c9ceb9a4884f2f92fe5cccb6">FBARCO</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">enum</span> {BARCO_E, BARCO_B, BARCO_D, BARCO_C} <a class="code" href="graficos_8h.html#a45218e00c9ceb9a4884f2f92fe5cccb6">FBARCO</a>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structGraficos.html">   29</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structGraficos.html">Graficos</a></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
@@ -136,23 +136,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graficos_8h.html#aac03f8f8a88316788848f141059104f0">desenha_mensagem_janela</a>(<span class="keyword">struct</span> <a class="code" href="structWin.html">Win</a>* win, <span class="keyword">const</span> <span class="keywordtype">char</span>* msg);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">char</span> <a class="code" href="graficos_8h.html#a57567c1699571cc7278eae4ba2ce979b">pega_seta_janela</a>(<span class="keyword">struct</span> <a class="code" href="structWin.html">Win</a>* win);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">char</span> <a class="code" href="graficos_8h.html#a57567c1699571cc7278eae4ba2ce979b">pega_seta_janela</a>(<span class="keyword">struct</span> <a class="code" href="structWin.html">Win</a>* win);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graficos_8h.html#ab9e954e180dec879f2b56770f4e6b9ea">destroi_janela</a>(<span class="keyword">struct</span> <a class="code" href="structWin.html">Win</a>* win);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graficos_8h.html#ab9e954e180dec879f2b56770f4e6b9ea">destroi_janela</a>(<span class="keyword">struct</span> <a class="code" href="structWin.html">Win</a>* win);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graficos_8h.html#a0b5433e541aef25ffabecea0a27b4dd2">exibe_janela</a>(<span class="keyword">struct</span> <a class="code" href="structWin.html">Win</a>* win);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graficos_8h.html#a0b5433e541aef25ffabecea0a27b4dd2">exibe_janela</a>(<span class="keyword">struct</span> <a class="code" href="structWin.html">Win</a>* win);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graficos_8h.html#ab391c21db21f941ac10e3dcc2bb9b145">esconde_janela</a>(<span class="keyword">struct</span> <a class="code" href="structWin.html">Win</a>* win);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graficos_8h.html#ab391c21db21f941ac10e3dcc2bb9b145">esconde_janela</a>(<span class="keyword">struct</span> <a class="code" href="structWin.html">Win</a>* win);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="graficos_8h_html_a0b5433e541aef25ffabecea0a27b4dd2"><div class="ttname"><a href="graficos_8h.html#a0b5433e541aef25ffabecea0a27b4dd2">exibe_janela</a></div><div class="ttdeci">void exibe_janela(struct Win *win)</div><div class="ttdef"><b>Definition:</b> graficos.c:181</div></div>
-<div class="ttc" id="graficos_8h_html_a7cd19f64eff88d19fb09110695b8e945"><div class="ttname"><a href="graficos_8h.html#a7cd19f64eff88d19fb09110695b8e945">destroi_graficos</a></div><div class="ttdeci">void destroi_graficos(struct Graficos **graficos)</div><div class="ttdef"><b>Definition:</b> graficos.c:39</div></div>
+<div class="ttc" id="graficos_8h_html_a7cd19f64eff88d19fb09110695b8e945"><div class="ttname"><a href="graficos_8h.html#a7cd19f64eff88d19fb09110695b8e945">destroi_graficos</a></div><div class="ttdeci">void destroi_graficos(struct Graficos **graficos)</div><div class="ttdef"><b>Definition:</b> graficos.c:41</div></div>
 <div class="ttc" id="structGraficos_html_a3719660b3d0fcea157c1154b4479206a"><div class="ttname"><a href="structGraficos.html#a3719660b3d0fcea157c1154b4479206a">Graficos::onda</a></div><div class="ttdeci">struct Win * onda</div><div class="ttdef"><b>Definition:</b> graficos.h:36</div></div>
-<div class="ttc" id="graficos_8h_html_aac03f8f8a88316788848f141059104f0"><div class="ttname"><a href="graficos_8h.html#aac03f8f8a88316788848f141059104f0">desenha_mensagem_janela</a></div><div class="ttdeci">void desenha_mensagem_janela(struct Win *win, const char *msg)</div><div class="ttdef"><b>Definition:</b> graficos.c:123</div></div>
+<div class="ttc" id="graficos_8h_html_aac03f8f8a88316788848f141059104f0"><div class="ttname"><a href="graficos_8h.html#aac03f8f8a88316788848f141059104f0">desenha_mensagem_janela</a></div><div class="ttdeci">void desenha_mensagem_janela(struct Win *win, const char *msg)</div><div class="ttdef"><b>Definition:</b> graficos.c:126</div></div>
 <div class="ttc" id="structMapa_html"><div class="ttname"><a href="structMapa.html">Mapa</a></div><div class="ttdef"><b>Definition:</b> mapa.h:15</div></div>
 <div class="ttc" id="graficos_8h_html_a45218e00c9ceb9a4884f2f92fe5cccb6"><div class="ttname"><a href="graficos_8h.html#a45218e00c9ceb9a4884f2f92fe5cccb6">FBARCO</a></div><div class="ttdeci">enum @0 FBARCO</div></div>
 <div class="ttc" id="structWin_html"><div class="ttname"><a href="structWin.html">Win</a></div><div class="ttdef"><b>Definition:</b> xwc.h:17</div></div>
@@ -160,7 +160,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="ttc" id="structGraficos_html_a3ffa32f4ad88cfc6154342fe5e622977"><div class="ttname"><a href="structGraficos.html#a3ffa32f4ad88cfc6154342fe5e622977">Graficos::rastro</a></div><div class="ttdeci">struct Win * rastro</div><div class="ttdef"><b>Definition:</b> graficos.h:34</div></div>
 <div class="ttc" id="structGraficos_html_ad341905922298a6d98ab3ae7a634dd3f"><div class="ttname"><a href="structGraficos.html#ad341905922298a6d98ab3ae7a634dd3f">Graficos::tiro</a></div><div class="ttdeci">struct Win * tiro</div><div class="ttdef"><b>Definition:</b> graficos.h:35</div></div>
 <div class="ttc" id="graficos_8h_html_af1b24dc66184994023be105df3a930d3"><div class="ttname"><a href="graficos_8h.html#af1b24dc66184994023be105df3a930d3">desenha_barco_janela</a></div><div class="ttdeci">void desenha_barco_janela(struct Win *win, const struct Graficos *graficos, const struct Barco *barco)</div></div>
-<div class="ttc" id="graficos_8h_html_a57567c1699571cc7278eae4ba2ce979b"><div class="ttname"><a href="graficos_8h.html#a57567c1699571cc7278eae4ba2ce979b">pega_seta_janela</a></div><div class="ttdeci">char pega_seta_janela(struct Win *win)</div><div class="ttdef"><b>Definition:</b> graficos.c:158</div></div>
+<div class="ttc" id="graficos_8h_html_a57567c1699571cc7278eae4ba2ce979b"><div class="ttname"><a href="graficos_8h.html#a57567c1699571cc7278eae4ba2ce979b">pega_seta_janela</a></div><div class="ttdeci">char pega_seta_janela(struct Win *win)</div><div class="ttdef"><b>Definition:</b> graficos.c:161</div></div>
 <div class="ttc" id="graficos_8h_html_ae04b367c80cc0667be2a4deeb9cea512"><div class="ttname"><a href="graficos_8h.html#ae04b367c80cc0667be2a4deeb9cea512">desenha_mapa_janela</a></div><div class="ttdeci">void desenha_mapa_janela(struct Win *win, struct Graficos *graficos, const struct Mapa *mapa, const struct Barco *barco)</div></div>
 <div class="ttc" id="structBarco_html"><div class="ttname"><a href="structBarco.html">Barco</a></div><div class="ttdef"><b>Definition:</b> barco.h:17</div></div>
 <div class="ttc" id="structGraficos_html_a542bc2092c5c142161d81641201abcbf"><div class="ttname"><a href="structGraficos.html#a542bc2092c5c142161d81641201abcbf">Graficos::destroco</a></div><div class="ttdeci">struct Win * destroco</div><div class="ttdef"><b>Definition:</b> graficos.h:33</div></div>
@@ -175,7 +175,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 8 de Junho de 2015 18:52:27 para Fuga Naval por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 15 de Junho de 2015 18:39:34 para Fuga Naval por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

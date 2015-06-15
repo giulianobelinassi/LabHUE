@@ -112,7 +112,7 @@ Definições e Macros</h2></td></tr>
 <tr class="separator:af6ec22f9c3bd91bd252e29aebb461b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fa9a687139f39c5033eb566a9e7b6e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graficos_8h.html#a5fa9a687139f39c5033eb566a9e7b6e1">DIM_Y</a>&#160;&#160;&#160;47</td></tr>
 <tr class="separator:a5fa9a687139f39c5033eb566a9e7b6e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add40ed6ad3f2b712cc09022a7390c4b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graficos_8h.html#add40ed6ad3f2b712cc09022a7390c4b8">FRAMES_BARCO</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memitem:add40ed6ad3f2b712cc09022a7390c4b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graficos_8h.html#add40ed6ad3f2b712cc09022a7390c4b8">FRAMES_BARCO</a>&#160;&#160;&#160;4</td></tr>
 <tr class="separator:add40ed6ad3f2b712cc09022a7390c4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -131,7 +131,8 @@ typedef struct <a class="el" href="structGraficos.html">Graficos</a> *&#160;</td
 Enumerações</h2></td></tr>
 <tr class="memitem:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>BARCO_E</b>, 
 <b>BARCO_B</b>, 
-<b>BARCO_D</b>
+<b>BARCO_D</b>, 
+<b>BARCO_C</b>
  }</td></tr>
 <tr class="separator:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -199,11 +200,11 @@ Variáveis</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FRAMES_BARCO&#160;&#160;&#160;3</td>
+          <td class="memname">#define FRAMES_BARCO&#160;&#160;&#160;4</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Quantidade de orientações do barco. Note que a contagem inicia-se de zero. </p>
+<p>Quantidade de orientações do barco. </p>
 
 </div>
 </div>
@@ -561,7 +562,7 @@ Variáveis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Aguarda o jogador precionar uma seta. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Aguarda o jogador pressionar uma seta. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">win</td><td>Janela. </td></tr>
   </table>
@@ -570,7 +571,7 @@ Variáveis</h2></td></tr>
 <dl class="section return"><dt>Retorna</dt><dd>'e', se Seta-esquerda pressionada. </dd></dl>
 <p>'b', se Seta-baixo pressionada. </p>
 <p>'d', se Seta-direita pressionada. </p>
-<p>'=', se ENTER pressionado. </p>
+<p>'c', se Seta-cima pressionada. '=', se ENTER pressionado. </p>
 
 </div>
 </div>
@@ -591,7 +592,7 @@ Variáveis</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 8 de Junho de 2015 18:52:27 para Fuga Naval por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 15 de Junho de 2015 18:39:34 para Fuga Naval por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

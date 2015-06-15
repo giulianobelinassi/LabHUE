@@ -19,16 +19,16 @@ struct Win; /* Alguma biblioteca compatível com xwc do Gubitoso.*/
 /** Altura em pixels de uma cédula*/
 #define DIM_Y    47 
 
-/** Quantidade de orientações do barco. Note que a contagem inicia-se de zero.*/
-#define FRAMES_BARCO 3 
+/** Quantidade de orientações do barco.*/
+#define FRAMES_BARCO 4 
 
 /** Possíveis orientações do Barco.*/
-enum {BARCO_E, BARCO_B, BARCO_D} FBARCO;
+enum {BARCO_E, BARCO_B, BARCO_D, BARCO_C} FBARCO;
 
 /** Struct guardando todos os possíveis gráficos (Conjunto de buffers).*/
 struct Graficos
 {
-	struct Win* barco[FRAMES_BARCO]; /**< Os 3 frames do barco */
+	struct Win* barco[FRAMES_BARCO]; /**< Os 4 frames do barco */
 	struct Win* agua;                /**< Cédula água          */
 	struct Win* destroco;            /**< Cédula destroço      */
 	struct Win* rastro;              /**< Cédula rastro        */
@@ -98,11 +98,12 @@ void desenha_mapa_janela(struct Win* win, struct Graficos* graficos, const struc
 void desenha_mensagem_janela(struct Win* win, const char* msg);
 
 /**
-  * Aguarda o jogador precionar uma seta.
+  * Aguarda o jogador pressionar uma seta.
   * @param win			Janela.
   * @return			'e', se Seta-esquerda pressionada. <p>
   *				'b', se Seta-baixo pressionada. <p>
   *		    		'd', se Seta-direita pressionada. <p>
+  *				'c', se Seta-cima pressionada.
   *				'=', se ENTER pressionado.
   */
 char pega_seta_janela(struct Win* win);

@@ -13,6 +13,7 @@ Graficos_t* carrega_graficos(WINDOW* win)
 	static char BARCO_DIREITA[]	= "graficos/bd0.xpm";
 	static char BARCO_ESQUERDA[]	= "graficos/be0.xpm";
 	static char BARCO_BAIXO[]	= "graficos/bb0.xpm";
+	static char BARCO_CIMA[]	= "graficos/bc0.xpm";
 	static char AGUA[]		= "graficos/w48.xpm";
 	static char DESTROCO[]		= "graficos/wfogo48.xpm";
 	static char RASTRO[]		= "graficos/rastro.xpm";
@@ -27,6 +28,7 @@ Graficos_t* carrega_graficos(WINDOW* win)
 	g->barco[BARCO_E] = ReadPic(win, BARCO_ESQUERDA, NULL);
 	g->barco[BARCO_B] = ReadPic(win, BARCO_BAIXO, NULL);
 	g->barco[BARCO_D] = ReadPic(win, BARCO_DIREITA, NULL);
+	g->barco[BARCO_C] = ReadPic(win, BARCO_CIMA, NULL);
 	g->agua           = ReadPic(win, AGUA, NULL);
 	g->destroco       = ReadPic(win, DESTROCO, NULL);
 	g->rastro         = ReadPic(win, RASTRO, NULL);
@@ -43,6 +45,7 @@ void destroi_graficos(struct Graficos** graficos)
 	FreePic(g->barco[BARCO_E]);
 	FreePic(g->barco[BARCO_B]);
 	FreePic(g->barco[BARCO_D]);
+	FreePic(g->barco[BARCO_C]);
 	FreePic(g->agua);
 	FreePic(g->destroco);
 	FreePic(g->rastro);
@@ -161,14 +164,11 @@ char pega_seta_janela(WINDOW* win)
 	InitKBD(win);
 	key = WGetKey(win);
 	
-	if (key == 113)
-		return 'e';
-	if (key == 116)
-		return 'b';
-	if (key == 114)
-		return 'd';
-	if (key == 36)
-		return '='; /*Enter.*/
+	if (key == 113)	return 'e';
+	if (key == 116)	return 'b';
+	if (key == 114)	return 'd';
+	if (key == 111)	return 'c';
+	if (key == 36 )	return '='; /*Enter.*/
 	
 	return '\0';
 }
